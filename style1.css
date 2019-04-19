@@ -24,43 +24,18 @@
     border-bottom: medium solid black;
 }
 
-.eventblock {
-    position: relative;
-    bottom: 17em;
-    background-color: silver;
-    width: 30%;
-    height: 30em;
-    display: inline-block;
-    margin-left: 10em;
-    border-color: black;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 1em;
-}
-
 body {
-    height: 100%;
+    height: 100vh;
     width: 85em;
     background: url('images/back.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
 }
 
-h2 {
-    font-family: Columbina;
-    font-size: 30px;
-    color: white;
-}
-
-.sub {
-    font-family: Columbina;
-    font-size: x-large;
-    color: white;
-}
-
 .headbutton {
     width: 8em;
     height: 2em;
+    /*background: url(images/buttonBack.png);*/
     background: -moz-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
     background: -webkit-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
     background: -o-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
@@ -74,38 +49,6 @@ h2 {
     color: black;
     font-family: 'Columbina';
     font-size: small;
-}
-
-.navsel {
-    background: -moz-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
-    background: -o-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
-    background: -ms-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
-    background: radial-gradient(ellipse at center, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
-    font-family: 'Columbina';
-    border-radius: 1em;
-}
-
-.worldhint {
-	position:absolute;
-	width:15em;
-	height:20em;
-	background-color:rgba(0, 106, 194);
-	font-family: Columbina;
-	color: white;
-	border-style:solid;
-	border-color:black;
-	border-width:2px;
-	border-radius: 1em;
-	visibility:hidden;
-}
-
-#dregoim:hover + #dregohint {
-	visibility: visible;
-}
-
-#queenim:hover + #queenhint {
-	visibility: visible;
 }
 
   button.c {
@@ -237,9 +180,4 @@ form input[type=checkbox] {
 form p {
 	margin-bottom: 2px;
 	text-align: left;
-}
-
-.user {
-	display: none;
-
 }

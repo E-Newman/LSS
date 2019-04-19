@@ -1,10 +1,21 @@
-﻿<!DOCTYPE html>
+﻿<?php
+    session_start();
+?>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
     <meta charset="utf-8" />
-    <title>Лианкины истории: вселенная</title>
+	<title>Лианкины истории: вселенная</title>
+	<?php if(empty($_SESSION['login'])){
+
+            
+echo ' <link rel="stylesheet" type="text/css" href="style.css"> ';
+} else {	
+		 echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
+}
+?>
     <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="/JS/scripts.js" type="text/javascript"></script>
@@ -21,8 +32,9 @@
             <a style="margin-top: -1vh" href="https://vk.com/liankastory"><img src="images/vk.png" style="width:3em; height:100%" /></a>
             <a href="https://instagram.com/firstova.helena"><img src="images/ins.png" style="width:3em; height:100%" /></a>
             <a class="headbutton" style="margin-left:1em;" href="">Другие проекты</a>
-            <a class="headbutton popup" style="margin-left:65em;" href="#loginForm">Войти</a>
-            <a class="headbutton popup" style="margin-left:75em;" href="#regForm">Регистрация</a>
+			<a class="headbutton popup auth" style="margin-left:65em;" href="#loginForm">Войти</a>
+            <a class="headbutton user" style="margin-left:65em;" href="/userlc.php">Личный кабинет</a>
+            <a class="headbutton popup auth" style="margin-left:75em;" href="#regForm">Регистрация</a>
         </header>
         <div class="headfoot" style="height:0.1em"></div>
         <div class="hidden">
@@ -59,17 +71,19 @@
             </form>
         </div>
         <div class="hidden">
-            <form id="loginForm">
+            <form id="loginForm" action="login.php" method="POST" onsubmit="return false">
                 <h1>Войти</h1>
                 <p>Имя пользователя:</p>
-                <input type="text" name="name" /><br>
+                <input id="logField1" type="text" name="name" required maxlength="15"/><br>
+                <p id="errlogField1" style="display:none; color:red;">Такого пользователя не существует</p>
                 <p>Пароль:</p>
-                <input type="password" name="password" /><br>
+                <input id="logField2" type="password" name="password" required maxlength="32"/><br>
+                <p id="errlogField2" style="display:none; color:red;">Неправильный пароль</p>
                 <div style="text-align:center">
-                    <button>Войти</button>
+                    <button id="logComplete">Войти</button>
                     <button>Забыли пароль?</button>
-                </div>
-            </form>
+				</div>
+				</form>
         </div>
 		<div style="height:5em; width:100%;">
 			<nobr>
@@ -101,7 +115,7 @@
 			<div style="width:50%; display:inline-block;">
 					<img id="dregoim" src="images/planet.png" height=80px width=80px style="border-radius:50%; margin-left:15em; display:block;"/>
 					<div class="worldhint" id="dregohint" style="top:30em; left:22em; ">
-						<p>Название мира: Дрэго</p>
+						<p>Название мира: Астарм</p>
 						<p>Книги по миру: "Дрэго", "Тинни и Тени"</p>
 						<p>Упоминается в: (что здесь?)</p>
 						<p>Расы: люди, различные виды драконов...</p>
