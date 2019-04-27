@@ -1,10 +1,20 @@
-﻿<!DOCTYPE html>
+﻿<?php
+    session_start();
+?>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+	<?php if(empty($_SESSION['login'])){
+
+            
+echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+} else {	
+		 echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
+}
+?>
     <meta charset="utf-8" />
-    <title>Лианкины истории: вселенная</title>
+	<title>Лианкины истории: вселенная</title>
     <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="/JS/scripts.js" type="text/javascript"></script>
@@ -15,15 +25,24 @@
     <style>
     </style>
 </head>
-<body style="height:200vh">
+<header class = "headfoot">
+			<div class = "head" style="margin-left: 5px;">
+            <div class="headfoot" style="height:0.1em"></div>
+            <button id="logo" onClick='location.href="https://vk.com/liankastory"' style="background: url(source/vk.png) round"></button>
+            
+			<button id="logo" onClick='location.href="https://instagram.com/firstova.helena"' style= "background: url(source/inst.png) round"></button>
+			<button class="headbutton">Другие проекты</button>	
+            </div>
+            
+			<div class = "head" style="margin-right: 5px; ">
+			<button class="headbutton popup auth" href = "#loginForm">Войти</button>
+            <button class="headbutton user" onClick='location.href="userlc.php"' >Личный кабинет</button>
+			<button class="headbutton popup auth" href = "#regForm">Регистрация</button>
+            </div>
+            
+	    </header>
+<body>
     <div>
-        <header class="headfoot" style="width:100%" align="center">
-            <a style="margin-top: -1vh" href="https://vk.com/liankastory"><img src="images/vk.png" style="width:3em; height:100%" /></a>
-            <a href="https://instagram.com/firstova.helena"><img src="images/ins.png" style="width:3em; height:100%" /></a>
-            <a class="headbutton" style="margin-left:1em;" href="">Другие проекты</a>
-            <a class="headbutton popup" style="margin-left:65em;" href="#loginForm">Войти</a>
-            <a class="headbutton popup" style="margin-left:75em;" href="#regForm">Регистрация</a>
-        </header>
         <div class="headfoot" style="height:0.1em"></div>
         <div class="hidden">
             <form id="regForm" action="reg.php" method="POST" onsubmit="return false">
@@ -59,25 +78,26 @@
             </form>
         </div>
         <div class="hidden">
-            <form id="loginForm">
+            <form id="loginForm" action="login.php" method="POST" onsubmit="return false">
                 <h1>Войти</h1>
                 <p>Имя пользователя:</p>
-                <input type="text" name="name" /><br>
+                <input id="logField1" type="text" name="name" required maxlength="15"/><br>
+                <p id="errlogField1" style="display:none; color:red;">Такого пользователя не существует</p>
                 <p>Пароль:</p>
-                <input type="password" name="password" /><br>
+                <input id="logField2" type="password" name="password" required maxlength="32"/><br>
+                <p id="errlogField2" style="display:none; color:red;">Неправильный пароль</p>
                 <div style="text-align:center">
-                    <button>Войти</button>
+                    <button id="logComplete">Войти</button>
                     <button>Забыли пароль?</button>
-                </div>
-            </form>
+				</div>
+				</form>
         </div>
-		<div style="height:5em; width:100%;">
-			<nobr>
-				<input name="search" type="text" style="font-family: Columbina; margin-left:25em; margin-top:1em; width:35em; height:40%;
+		<div class="content">
+				<input name="search" type="text" style="font-family: Columbina; margin-left:15%; margin-top:1em; width:35%; height:40%;
 					border-radius: 1em;" placeholder="Поиск"/>
-				<a class="headbutton" style="position:absolute; top:6.3em; margin-left:1em;" href="">Найти</a>
+				<button class="headbutton" style="width:5%">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
-				<select id = "select" class="navsel" style="margin-left:10em;">
+				<select id = "select" class="navsel">
 					<option value="0">Навигация</option>
 					<option value="index">Главная страница</option>
 					<option value="wiki">Вселенная</option>
@@ -86,49 +106,52 @@
 					<option>Книги</option>
 					<option>Обратная связь</option>
 				</select>
-			</nobr>
 		</div>
-		<div style="text-align:center;">
+		<div style="text-align:center">
 			<h2>Галерея</h2>
-			<div style="text-align:center; background-color:white; border-style:solid; border-color:black; border-width:2px;
-				border-radius: 1em; width:35em; margin-left:25em;">
+			<div class="content" style="background-color:white; border-style:solid; border-color:black; border-width:2px;
+				border-radius: 1em; width:35em; margin-left:25%; margin-top:1em;"> <!--норм див?--><!--норм,ток маргины лучше писать в %(с)Александер-->
 				<img src="images/test.png" style="margin:1em;" height=150px />
 				<img src="images/test.png" style="margin:1em;" height=150px />
 				<img src="images/test.png" style="margin:1em;" height=150px />
 			</div>
 		</div>
-		<div style="height:50em; margin-top:2em;">
-			<div style="width:50%; display:inline-block;">
-					<img id="dregoim" src="images/planet.png" height=80px width=80px style="border-radius:50%; margin-left:15em; display:block;"/>
-					<div class="worldhint" id="dregohint" style="top:30em; left:22em; ">
-						<p>Название мира: Дрэго</p>
-						<p>Книги по миру: "Дрэго", "Тинни и Тени"</p>
-						<p>Упоминается в: (что здесь?)</p>
-						<p>Расы: люди, различные виды драконов...</p>
-						<p>Наличие магии: есть, развита</p>
-						<p>Уровень развития: средний</p>
-					</div>
-					<p class="sub" style="margin-left:11em;">Дрэго</p>
-					<img id="queenim" src="images/planet.png" height=80px width=80px caption="Проект Королева" style="border-radius:50%; display:block; margin-left:30em;"/>
-					<div class="worldhint" id="queenhint" style="top:40em; left:37em; z-index:1">
-						<p>Название мира: Земля R-2,1/imp-17-46-278-t(p)</p>
-						<p>Книги по миру: "Проект Королева"</p>
-						<p>Упоминается в: (что здесь?)</p>
-						<p>Расы: люди, драконы</p>
-						<p>Наличие магии: нет</p>
-						<p>Уровень развития: современность</p>
-					</div>
-					<p class="sub" style="margin-left:22em;">Проект Королева</p>
+		<div class="content">
+			<div style=" padding-top:1%; padding-bottom:1%;"> 
+				<div class="sub" style="margin-left:14em; display:inline-block;">Дрэго</div> 
+				<img id="dregoim" src="images/planet.png" height=80px width=80px style="border-radius:50%; margin-left:85%;  display:inline-block;"/>		
+				<div class="worldhint" id="dregohint" style="margin-left:35%">
+					<p>Название мира: Астарм</p>
+					<p>Книги по миру: "Дрэго", "Тинни и Тени"</p>
+					<p>Упоминается в: (что здесь?)</p>
+					<p>Расы: люди, различные виды драконов...</p>
+					<p>Наличие магии: есть, развита</p>
+					<p>Уровень развития: средний</p>
+				</div>
+				<div class="sub" style="margin-left:5em;display:inline-block; padding-top:1%; padding-bottom:1%;">Проект Королева</div>
+				<img id="queenim" src="images/planet.png" height=80px width=80px caption="Проект Королева" style="border-radius:50%; display:inline-block;
+					margin-left:60%;"/>
+				<div class="worldhint" id="queenhint" style="margin-left:15%;">
+					<p>Название мира: Земля R-2,1/imp-17-46-278-t(p)</p>
+					<p>Книги по миру: "Проект Королева"</p>
+					<p>Упоминается в: (что здесь?)</p>
+					<p>Расы: люди, драконы</p>
+					<p>Наличие магии: нет</p>
+					<p>Уровень развития: современность</p>
+				</div>
 			</div>
 			<div class="eventblock">
 				<h3 style="font-family:Columbina; margin-left:1em;">Ближайшие события</h3>
-				<div style="height:80%;">
+				<div style="height:70%;">
 					<!--TODO сюда грузим события-->
 				</div>
-				<a class="headbutton" style="margin-left:40%; top:81%; height:3em;" href="news.php">Перейти к календарю</a>
+				<button class="headbutton" style="margin-left:40%; height:3em;">Перейти к календарю</button>
 			</div>
 		</div>
 		<footer style="border-top: medium solid black"></footer>
+    </div>
+</body>
+</html> medium solid black"></footer>
     </div>
 </body>
 </html>

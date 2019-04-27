@@ -1,0 +1,334 @@
+@font-face {
+    font-family: Mon Amour Two;
+    src: url(fonts/MonAmourTwo.ttf);
+}
+
+@font-face {
+    font-family: Columbina;
+    src: url(fonts/Columbina.ttf);
+}
+
+@font-face {
+    font-family: Amaltea One;
+    src: url(fonts/AmalteaOne.ttf);
+}
+button, 
+button:active, 
+button:focus {
+    outline: none;
+}
+div.head {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+}
+div.content {
+	display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+.mainLink {
+    font-family: 'Columbina';
+    font-size: 1.5em;
+    color: white;
+    background-color: transparent;
+    border:0;
+    display: inline-block;
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.mainLink:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform, opacity;
+    transition-property: transform, opacity;
+}
+     
+.mainLink:hover {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+.mainLink:hover:before {
+    opacity: 1;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+}
+#logo {	
+	transition: all 150ms ease;
+	margin-left: 1px;
+	margin-right: 1px;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+    border-radius: 50%;
+    border: 0em;
+  }
+ #logo:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+.headfoot {
+    display: flex; 
+	justify-content: space-between;
+	align-items: center;
+	height: 60px; 
+}
+
+.eventblock {
+    /*position: relative;*/
+    /*bottom: 17em;*/
+    background-color: silver;
+    width: 30em;
+    height: 30em;
+    display: block;
+    margin-left: 15%;
+	margin-right:2%;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 1em;
+}
+  html {
+	margin: 0px;
+	padding: 0px;
+	
+}
+body {
+    background: url('images/back.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0px;
+	padding: 0px;
+}
+
+h2 {
+    font-family: Columbina;
+    font-size: 30px;
+    color: white;
+}
+
+.sub {
+    font-family: Columbina;
+    font-size: x-large;
+    color: white;
+	display:inline-block;
+}
+.headbutton:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+.headbutton {
+    transition: all 150ms ease;
+    
+    background: -moz-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
+    
+    text-align: center;
+    border-radius: 1em;
+    text-decoration: none;
+    color: black;
+    font-family: 'Columbina';
+	font-size: small;
+	margin-left: 5px;
+    margin-right: 5px;
+    min-width: 100px;
+	width: 31.5%;
+	height: 40px;
+	cursor: pointer;
+    vertical-align: middle;
+    border-style:solid;
+    border: 0em;
+}
+
+.navsel {
+	transition: all 150ms ease;
+	
+    background: -moz-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
+    font-family: 'Columbina';
+    border-radius: 1em;
+	margin-left: 5px;
+    margin-right: 5px;
+    min-width: 100px;
+	width: 5%;
+}
+
+.worldhint {
+	width:15em;
+	height:20em;
+	background-color:rgba(0, 106, 194);
+	font-family: Columbina;
+	color: white;
+	border-style:solid;
+	border-color:black;
+	border-width:2px;
+	border-radius: 1em;
+	visibility:hidden;
+}
+
+#dregoim:hover + #dregohint {
+	visibility: visible;
+}
+
+#queenim:hover + #queenhint {
+	visibility: visible;
+}
+
+  button.c {
+	margin-left: 1px;
+	margin-right: 1px;
+	width: 31.5%;
+	height: 40px;
+	cursor: pointer;
+	vertical-align: middle;
+  }
+.logo {	
+	
+	margin-left: 1px;
+	margin-right: 1px;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	border-radius: 50%;
+  }
+
+  .b {
+	display: inline-block!important;
+ 	height: 60%;
+	width: 25%;
+	background-color:  #A9A9A9 ;
+	border-radius: 10px 20px;
+	margin-top: 1.5%;
+	margin-left: 1.5%;
+	}
+	p.a
+	{
+		
+		height: 5%;
+		margin-top: 1.5%;
+  	        margin-left: 1.5%;
+		margin-right: 1.5%;
+		font-size: 28pt;		
+	}
+	p.b
+		{
+			height: 5%;			
+			margin-left: 1.5%;
+			margin-right: 1.5%;
+		}
+	p.c{
+			overflow:auto;
+			height: 60%;
+			margin-top: 1.5%;
+			margin-left: 1.5%;
+			margin-right: 1.5%;
+		}
+
+
+
+ .nov{
+	height: 7%;
+	width: 30%;
+	margin-left: 65%;
+	padding-bottom:2%;
+	
+        
+		
+ }
+
+	
+	
+.btn {
+	height: 7%;
+	width: 30%;
+	margin-left: 65%;
+
+	
+ 
+	overflow: hidden;
+	font-family: 'Montserrat Alternates', sans-serif;
+    color: white;
+	letter-spacing: 1px;    
+    text-transform: uppercase;
+	font-weight: 600;
+    border-width: 0;    
+	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+	outline: none;
+    cursor: pointer; 
+background: linear-gradient(90deg, #c600b2, #7619fd);
+}
+
+.btn:before, 
+.btn:after {    
+    content: "";
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+    height: 100%;
+    left: -110%;
+    top: 0;
+	opacity: 0.1;
+	background: black;    
+    transform: skewX(25deg);    
+	transition: .5s ease;
+}
+.btn:hover:before {
+    left: -10%;
+    transition: .3s ease;
+}
+.btn:hover:after {
+    left: -20%;
+}
+.hidden {
+	display: none;
+}
+.loadmore {
+	margin-left: 35%;
+}
+form {
+	padding: 15px 50px;
+	background-color: white;
+	max-width: 320px;
+	margin: auto;
+	position: relative;
+}
+form input {
+	width: 100%;
+	margin-bottom: 5px;
+}
+form input[type=checkbox] {
+	width: 5%;
+	margin-left: 2px;
+}
+form p {
+	margin-bottom: 2px;
+	text-align: left;
+}
+/* НЕ ТРОГАЙТЕ ИНаче бан*/
+.user {
+	display: none;
+}

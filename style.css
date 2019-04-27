@@ -26,7 +26,7 @@
 
 .eventblock {
     position: relative;
-    bottom: 23em;
+    bottom: 17em;
     background-color: silver;
     width: 30%;
     height: 30em;
@@ -39,7 +39,7 @@
 }
 
 body {
-    height: 100vh;
+    height: 100%;
     width: 85em;
     background: url('images/back.jpg') no-repeat center center;
     background-size: cover;
@@ -90,7 +90,8 @@ h2 {
 	position:absolute;
 	width:15em;
 	height:20em;
-	background-color:rgba(0, 106, 194);
+	/*background-color:rgba(0, 106, 194);*/
+	background-color:blue;
 	font-family: Columbina;
 	color: white;
 	border-style:solid;
@@ -237,4 +238,9 @@ form input[type=checkbox] {
 form p {
 	margin-bottom: 2px;
 	text-align: left;
+}
+
+.user {
+	display: none;
+
 }

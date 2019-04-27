@@ -1,8 +1,18 @@
-﻿<!DOCTYPE html>
+<?php
+    session_start();
+?>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+<?php if(empty($_SESSION['login'])){
+
+            
+echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+} else {	
+         echo ' <link rel="stylesheet" type="text/css" href="exprbySanya.css"> ';
+}
+?>
     <meta charset="utf-8" />
     <title>Лианкины истории</title>
     <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
@@ -12,15 +22,22 @@
     <style>
     </style>
 </head>
+<header class = "headfoot">
+            <div class = "head" style="margin-left: 5px;">
+            <button id="logo" onClick='location.href="https://vk.com/liankastory"' style="background: url(source/vk.png) round"></button>
+            
+			<button id="logo" onClick='location.href="https://instagram.com/firstova.helena"' style= "background: url(source/inst.png) round"></button>
+			<button class="headbutton">Другие проекты</button>	
+            </div>
+            
+			<div class = "head" style="margin-right: 5px; ">
+			<button class="headbutton popup auth" href = "#loginForm">Войти</button>
+            <button class="headbutton user" onClick='location.href="userlc.php"' >Личный кабинет</button>
+			<button class="headbutton popup auth" href = "#regForm">Регистрация</button>
+            </div>
+            
+	    </header>
 <body>
-    <div>
-        <header class="headfoot" style="width:100%" align="center">
-            <a style="margin-top: -1vh" href="https://vk.com/liankastory"><img src="images/vk.png" style="width:3em; height:100%" /></a>
-            <a href="https://instagram.com/firstova.helena"><img src="images/ins.png" style="width:3em; height:100%" /></a>
-            <a class="headbutton" style="margin-left:1em;" href="">Другие проекты</a>
-            <a class="headbutton popup" style="margin-left:65em;" href="#loginForm">Войти</a>
-            <a class="headbutton popup" style="margin-left:75em;" href="#regForm">Регистрация</a>
-        </header>
         <div class="headfoot" style="height:0.1em"></div>
         <div class="hidden">
             <form id="regForm" action="reg.php" method="POST" onsubmit="return false">
@@ -56,33 +73,39 @@
             </form>
         </div>
         <div class="hidden">
-            <form id="loginForm">
+            <form id="loginForm" action="login.php" method="POST" onsubmit="return false">
                 <h1>Войти</h1>
                 <p>Имя пользователя:</p>
-                <input type="text" name="name" /><br>
+                <input id="logField1" type="text" name="name" required maxlength="15"/><br>
+                <p id="errlogField1" style="display:none; color:red;">Такого пользователя не существует</p>
                 <p>Пароль:</p>
-                <input type="password" name="password" /><br>
+                <input id="logField2" type="password" name="password" required maxlength="32"/><br>
+                <p id="errlogField2" style="display:none; color:red;">Неправильный пароль</p>
                 <div style="text-align:center">
-                    <button>Войти</button>
+                    <button id="logComplete">Войти</button>
                     <button>Забыли пароль?</button>
                 </div>
             </form>
         </div>
-        <div style="height:30em; width:100%">
-            <nobr>
-                <h1 style="color:white; font-size:2em; font-family: 'Mon Amour Two'; margin-left:5%">Лианкины Истории<br />писателя Елены Фирстовой</h1>
-                <a class="mainLink" href="wiki.php" style="margin-left:5em">Вселенная</a>
-                <div style="height:1em"></div>
-                <a class="mainLink" href="news.php" style="margin-left:15em;">Новости</a>
-                <div style="height:1.5em"></div>
-                <a class="mainLink" style="margin-left:25em;">Блог</a>
-                <div style="height:0.1em"></div>
-                <a class="mainLink" style="margin-left:35em;">Книги</a>
-                <div style="height:1em"></div>
-                <a class="mainLink" style="margin-left:45em;">Обратная связь</a>
-            </nobr>
+
+        <div style="height: 50em ;width:100%">
+            
+                <h1 style="color:white; font-size:2em; font-family: 'Mon Amour Two'; margin-left:2%">Лианкины Истории<br />писателя Елены Фирстовой</h1>
+
+                <button class="mainLink" onClick='location.href="wiki.php"' style="display:inline-block; margin-left:15%; margin-top:2%;">Вселенная</button>
+
+                <br>
+                <button class="mainLink" onClick='location.href="news.php"' style="display:inline-block;margin-top:2%; margin-left:30%;">Новости</button>
+                <br>
+                <button class="mainLink" onClick='location.href="todo.php"' style="display:inline-block;margin-top:2%;margin-left:45%;">Блог</button>
+                <br>
+                <button class="mainLink" onClick='location.href="todo.php"' style="display:inline-block;margin-top:2%;margin-left:60%;">Книги</button>
+                <br>
+                <button class="mainLink" onClick='location.href="todo.php"' style="display:inline-block;margin-top:2%; margin-left:75%;">Обратная связь</button>
+            
         </div>
-        <footer style="border-top: medium solid black"></footer>
-    </div>
+        <footer style="border-top: medium solid black">
+    </footer>
+    
 </body>
 </html>

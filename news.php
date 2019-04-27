@@ -1,26 +1,42 @@
-﻿<html>
-    <head>
-        <title>Лианкины истории: новости</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-	    
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"  type="text/javascript"></script>
-        <script src="/JS/scripts.js" type="text/javascript">
-        </script>
-       
-		<script src="libs/magnific-popup/jquery.magnific-popup.min.js" ></script>
-		<style>
-		</style>
-	</head>
+﻿<?php
+    session_start();
+?>
+<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<?php if(empty($_SESSION['login'])){
+
+            
+echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+} else {	
+         echo ' <link rel="stylesheet" type="text/css" href="exprbySanya.css"> ';
+}
+?>
+    <meta charset="utf-8" />
+    <title>Лианкины истории</title>
+    <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="/JS/scripts.js" type="text/javascript"></script>
+    <script src="libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <style>
+    </style>
+</head>
+<header class = "headfoot">
+            <div class = "head" style="margin-left: 5px;">
+            <button id="logo" onClick='location.href="https://vk.com/liankastory"' style="background: url(source/vk.png) round"></button>
+            
+			<button id="logo" onClick='location.href="https://instagram.com/firstova.helena"' style= "background: url(source/inst.png) round"></button>
+			<button class="headbutton">Другие проекты</button>	
+            </div>
+            
+			<div class = "head" style="margin-right: 5px; ">
+			<button class="headbutton popup auth" href = "#loginForm">Войти</button>
+            <button class="headbutton user" onClick='location.href="userlc.php"' >Личный кабинет</button>
+			<button class="headbutton popup auth" href = "#regForm">Регистрация</button>
+            </div>
+            
+	    </header>
     <body>
-        <header class="headfoot" style="width:100%" align="center">
-            <a style="margin-top: -1vh" href="https://vk.com/liankastory"><img src="images/vk.png" style="width:3em; height:100%" /></a>
-            <a href="https://instagram.com/firstova.helena"><img src="images/ins.png" style="width:3em; height:100%" /></a>
-            <a class="headbutton" style="margin-left:1em;" href="">Другие проекты</a>
-            <a class="headbutton popup" style="margin-left:65em;" href="#loginForm">Войти</a>
-            <a class="headbutton popup" style="margin-left:75em;" href="#regForm">Регистрация</a>
-        </header>
         <div class="headfoot" style="height:0.1em"></div>
         <div class="hidden">
             <form id="regForm" action="reg.php" method="POST" onsubmit="return false">
