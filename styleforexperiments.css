@@ -92,8 +92,6 @@ div.content {
 }
 
 .eventblock {
-    /*position: relative;*/
-    /*bottom: 17em;*/
     background-color: silver;
     width: 30em;
     height: 30em;
@@ -122,6 +120,12 @@ h2 {
     font-family: Columbina;
     font-size: 30px;
     color: white;
+}
+
+h3 {
+	font-family: Columbina;
+    color: white;
+	margin-left:5%;
 }
 
 .sub {

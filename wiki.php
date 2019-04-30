@@ -119,7 +119,7 @@ echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
 		<div class="content">
 			<div style=" padding-top:1%; padding-bottom:1%;"> 
 				<div class="sub" style="margin-left:14em; display:inline-block;">Дрэго</div> 
-				<img id="dregoim" src="images/planet.png" height=80px width=80px style="border-radius:50%; margin-left:85%;  display:inline-block;"/>		
+				<a href='world.php'><img id="dregoim" src="images/planet.png" height=80px width=80px style="border-radius:50%; margin-left:85%;  display:inline-block;"/></a>		
 				<div class="worldhint" id="dregohint" style="margin-left:35%">
 					<p>Название мира: Астарм</p>
 					<p>Книги по миру: "Дрэго", "Тинни и Тени"</p>
@@ -141,7 +141,7 @@ echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
 				</div>
 			</div>
 			<div class="eventblock">
-				<h3 style="font-family:Columbina; margin-left:1em;">Ближайшие события</h3>
+				<h3>Ближайшие события</h3>
 				<div style="height:70%;">
 					<!--TODO сюда грузим события-->
 				</div>
