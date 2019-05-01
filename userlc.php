@@ -9,7 +9,7 @@
             
             echo 'ЗАЛОГИНЬСЯ ПИДОР';
             } else {	
-                     echo ' <link rel="stylesheet" type="text/css" href="style.css"> ';
+                     echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
             }
 	    ?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

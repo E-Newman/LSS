@@ -336,3 +336,7 @@ form p {
 .user {
 	display: none;
 }
+
+.nouser {
+	display: relative;
+}

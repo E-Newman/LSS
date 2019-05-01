@@ -10,7 +10,7 @@
             
 echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
 } else {	
-         echo ' <link rel="stylesheet" type="text/css" href="exprbySanya.css"> ';
+         echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
 }
 ?>
     <meta charset="utf-8" />
@@ -31,9 +31,9 @@ echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
             </div>
             
 			<div class = "head" style="margin-right: 5px; ">
-			<button class="headbutton popup auth" href = "#loginForm">Войти</button>
+			<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
             <button class="headbutton user" onClick='location.href="userlc.php"' >Личный кабинет</button>
-			<button class="headbutton popup auth" href = "#regForm">Регистрация</button>
+			<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
             </div>
             
 	    </header>
