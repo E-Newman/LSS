@@ -29,7 +29,7 @@ echo ' <link rel="stylesheet" type="text/css" href="style.css"> ';
             <a href="https://instagram.com/firstova.helena"><img src="images/ins.png" style="width:3em; height:100%" /></a>
             <a class="headbutton" style="margin-left:1em;" href="">Другие проекты</a>
             <a class="headbutton popup auth" style="margin-left:65em;" href="#loginForm">Войти</a>
-            <a class="headbutton user" style="margin-left:65em;" href="/userlc.php">Личный кабинет</a>
+            <a class="headbutton user" style="margin-left:65em;" href="/me.php">Личный кабинет</a>
             <a class="headbutton popup auth" style="margin-left:75em;" href="#regForm">Регистрация</a>
         </header>
         <div class="headfoot" style="height:0.1em"></div>

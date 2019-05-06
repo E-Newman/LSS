@@ -1,5 +1,6 @@
 $(document).ready(function () {
 	function loadmore(btn_more, count_show, count_add, type_query) {
+
 		$.ajax({
 
 			url: "ajax.php", // куда отправляем
@@ -18,6 +19,7 @@ $(document).ready(function () {
 					//Если запрос был к бд с Новостями 
 					if (data.query == "News") {
 						//Вставляем html код под блоком с Новостями
+
 						$('#content').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
@@ -26,6 +28,7 @@ $(document).ready(function () {
 					}
 					//Если запрос был к бд с Событиями
 					if (data.query == "event") {
+
 						//Вставляем html код под блоком с Событиями
 						$('#content1').append(data.html);
 						btn_more.val('Показать еще');
@@ -34,17 +37,97 @@ $(document).ready(function () {
 
 					}
 
-				} else {
-
-					btn_more.val('Больше нечего показывать');
-
+				} else if (data.result == "finish") {
+					console.log(data.qw);
+					console.log(data.we);
+					btn_more.css("display", "none");
 				}
 
 			}
 
 		});
 
-		return count_show + 3;
+
+	}
+	function for_Articles(btn_more, count_show, count_add, type_query, world_type, article_type) {
+
+		$.ajax({
+
+			url: "ajax.php", // куда отправляем
+			type: "post", // метод передачи
+			dataType: "json", // тип передачи данных
+			data: { // что отправляем
+				"count_show": count_show,
+				"count_add": count_add,
+				"type_query": type_query,
+				"world_type": world_type,
+				"article_type": article_type
+			},
+
+			// после получения ответа сервера							
+			success: function (data) {
+
+				if (data.result == "success") {
+					//Если запрос был к бд с Новостями 
+					if (data.query == "char") {
+
+						$('#charcontent').append(data.html);
+						btn_more.val('Показать еще');
+						//Увеличиваем начальный индекс на 3
+						btn_more.attr('count_show', (count_show + 2));
+					}
+					if (data.query == "prof") {
+
+						$('#profcontent').append(data.html);
+						btn_more.val('Показать еще');
+						//Увеличиваем начальный индекс на 3
+						btn_more.attr('count_show', (count_show + 2));
+					}
+					if (data.query == "race") {
+
+						$('#racecontent').append(data.html);
+						btn_more.val('Показать еще');
+						//Увеличиваем начальный индекс на 3
+						btn_more.attr('count_show', (count_show + 2));
+					}
+					if (data.query == "place") {
+
+						$('#placecontent').append(data.html);
+						btn_more.val('Показать еще');
+						//Увеличиваем начальный индекс на 3
+						btn_more.attr('count_show', (count_show + 2));
+					}
+					if (data.query == "build") {
+
+						$('#buildcontent').append(data.html);
+						btn_more.val('Показать еще');
+						//Увеличиваем начальный индекс на 3
+						btn_more.attr('count_show', (count_show + 2));
+					}
+					if (data.query == "event") {
+
+						$('#eventcontent').append(data.html);
+						btn_more.val('Показать еще');
+						//Увеличиваем начальный индекс на 3
+						btn_more.attr('count_show', (count_show + 2));
+					}
+					if (data.query == "art") {
+
+						$('#artcontent').append(data.html);
+						btn_more.val('Показать еще');
+						//Увеличиваем начальный индекс на 3
+						btn_more.attr('count_show', (count_show + 2));
+					}
+
+
+				} else {
+					btn_more.css("display", "none");
+				}
+
+			}
+
+		});
+
 
 	}
 	function check_Name_And_Password(name, password) {
@@ -119,6 +202,7 @@ $(document).ready(function () {
 	// Функция проверки занятости логина и почты 
 	function Mail_And_Login_Check(value) {
 		// Занят Логин и Почта
+
 		if (value == 1) {
 			//Выводятся 2 предупреждения и рамки полей ввода для Логина и Почты окрашиваются в красный
 			$('#regField1').css("border-color", "red");
@@ -157,16 +241,19 @@ $(document).ready(function () {
 	}
 
 	function Password_And_Login_Check(value) {
-		// Занят Логин и Почта
+
+		$('#errlogField4').text("123");
+		document.getElementById('#errlogField4').innerHTML("123");
 		if (value == 1) {
 			document.getElementById('loginForm').submit(true);
 		}
 		else if (value == 2) {
+
 			$('#logField1').css("border-color", "red");
 			$('#errlogField3').css("display", "block");
 			$('#logField2').css("border-color", "black");
-            $('#errlogField2').css("display", "none");
-            $('#errlogField1').css("display", "none");
+			$('#errlogField2').css("display", "none");
+			$('#errlogField1').css("display", "none");
 		} else if (value == 3) {
 			$('#logField1').css("border-color", "red");
 			$('#errlogField1').css("display", "block");
@@ -214,6 +301,16 @@ $(document).ready(function () {
 		btn_more.val('Подождите...');
 		count_show = loadmore(btn_more, count_show, count_add, type_query);
 
+	});
+	$('.mooer').click(function () {
+		var btn_more = $(this);
+		var count_show = parseInt($(this).attr('count_show'));
+		var count_add = $(this).attr('count_add');
+		var type_query = parseInt($(this).attr('type_query'));
+		var world_type = $(this).attr('world_type');
+		var article_type = $(this).attr('article_type');
+		btn_more.val('Подождите...');
+		count_show = for_Articles(btn_more, count_show, count_add, type_query, world_type, article_type);
 	});
 
 	$('#regComplete').click(function () {
@@ -297,7 +394,35 @@ $(document).ready(function () {
 		var name = $('#logField1').val();
 		var password = $('#logField2').val();
 		check_Name_And_Password(name, password);
+		console.log("123123123");
+	});
+	$('#Login').click(function () {
+		$('#logh1').css("display", "block");
+		$('#logp1').css("display", "block");
+		$('#logField1').css("display", "block");
+		$('#logp2').css("display", "block");
+		$('#logField2').css("display", "block");
+		$('#logdiv').css("display", "block");
+		$('#pwdh1').css("display", "none");
+		$('#pwdField2').css("display", "none");
+		$('#pwdField1').css("display", "none");
+		$('#pwdid').css("display", "none");
+	});
+	$('#pwdComplete').click(function () {
+		$('#logh1').css("display", "none");
+		$('#logp1').css("display", "none");
+		$('#logField1').css("display", "none");
+		$('#logp2').css("display", "none");
+		$('#logField2').css("display", "none");
+		$('#logdiv').css("display", "none");
+		$('#pwdh1').css("display", "block");
+		$('#pwdField2').css("display", "block");
+		$('#pwdField1').css("display", "block");
+		$('#pwdid').css("display", "block");
 
+	});
+	$('#pwdComplete1').click(function () {
+		document.getElementById('loginForm').submit(true);
 	});
 	$('#select').change(function () {
 		var links = { "index": "index.php", "wiki": "wiki.php", "news": "news.php" };
