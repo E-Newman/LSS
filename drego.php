@@ -134,7 +134,7 @@ session_start();
 						<p class="c">
 							Лиара — тень Лианки. Как и Лианка имеет три формы.
 						</p>
-						<button class="btn">Читать</button>
+						<button class="btn" onClick='location.href="articles/drego/liara.php"'>Читать</button>
 					</div>
 					<div class="b">
 						<p class="a">
@@ -143,7 +143,7 @@ session_start();
 						<p class="c">
 							Полное имя: Дрэго'н Фан Дэ Дрэйго из династии серебряного дракона Фан Дэ Дрэйго. Родом из Дракийского королевства.
 						</p>
-						<button class="btn">Читать</button>
+						<button class="btn" onClick='location.href="articles/drego/drego.php"'>Читать</button>
 					</div>
 				</div>
 				<h5>
@@ -213,7 +213,7 @@ session_start();
 							Макакорукие волки  — бурые волки размером с овчарку, отличительная черта: пять пальцев как у обезьян на передних лапах,
 							строение передних лап похоже на руки человекообразных обезьян. Волки не смотрят в небо.
 						</p>
-						<button class="btn">Читать</button>
+						<button class="btn" onClick='location.href="articles/drego/makakorukie_volki.php"'>Читать</button>
 					</div>
 					<div class="b">
 						<p class="a">

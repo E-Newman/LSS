@@ -242,7 +242,7 @@ session_start();
 						<p class="c">
 							Раса создателей драконов. Создана Движением.
 						</p>
-						<button class="btn">Читать</button>
+						<button class="btn" onClick='location.href="articles/kailria/drevnie.php"'>Читать</button>
 					</div>
 					<div class="b">
 						<p class="a">
@@ -253,7 +253,7 @@ session_start();
 							нападать на чужие земли и проявлять агрессию по отношению к соседям, поэтому Каильрия расширялась бескровно: путём переговоров, с помощью звонкой
 							монеты или интриг.
 						</p>
-						<button class="btn">Читать</button>
+						<button class="btn" onClick='location.href="articles/kailria/vnutrennye_rasy_drakonov.php"'>Читать</button>
 					</div>
 				</div>
 				<h5>
@@ -378,7 +378,7 @@ session_start();
 							тогда же они разработали основной свод законов и этикет, по которым до сих пор следуют каильрийцы.
 
 						</p>
-						<button class="btn">Читать</button>
+						<button class="btn" onClick='location.href="articles/kailria/sozdanie_gosudarstva_kailrii.php"'>Читать</button>
 					</div>
 					<div class="b">
 						<p class="a">
@@ -390,7 +390,7 @@ session_start();
 							Драконов становилось всё больше, в то время как число Древних практически не менялось, поэтому со временем большинство
 							крылатых забыли, как выглядят их создатели. Через несколько столетий Древние начали переселяться в иную плоскость.
 						</p>
-						<button class="btn">Читать</button>
+						<button class="btn" onClick='location.href="articles/kailria/grazhdanskaya_voyna_v_kailrii.php"'>Читать</button>
 					</div>
 				</div>
 				<h5>

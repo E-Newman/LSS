@@ -119,7 +119,7 @@ echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
 		<div class="content">
 			<div style=" padding-top:1%; padding-bottom:1%;"> 
 				<div class="sub" style="margin-left:14em; display:inline-block;">Дрэго</div> 
-				<a href='drego.php'><img id="dregoim" src="images/planet.png" height=80px width=80px style="border-radius:50%; margin-left:85%;  display:inline-block;"/></a>		
+				<a id="dregoim" href='drego.php'><img src="images/planet.png" height=80px width=80px style="border-radius:50%; margin-left:85%;  display:inline-block;"/></a>		
 				<div class="worldhint" id="dregohint" style="margin-left:35%">
 					<p>Название мира: Астарм</p>
 					<p>Книги по миру: "Дрэго", "Тинни и Тени"</p>
@@ -140,7 +140,7 @@ echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
 					<p>Уровень развития: современность</p>
 				</div>
 				<div class="sub" style="margin-left:5em;display:inline-block; padding-top:1%; padding-bottom:1%;">Каильрия</div>
-				<a href='kailria.php'><img id="kaim" src="images/planet.png" height=80px width=80px caption="Каильрия" style="border-radius:50%; display:inline-block;
+				<a id="kaim" href='kailria.php'><img src="images/planet.png" height=80px width=80px caption="Каильрия" style="border-radius:50%; display:inline-block;
 					margin-left:60%;"/></a>
 				<div class="worldhint" id="kahint" style="margin-left:15%;">
 					<p>Название мира: Каильрия</p>
