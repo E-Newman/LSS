@@ -88,18 +88,18 @@ session_start();
 
             <div id="logdiv" style="text-align:center">
                 <button id="logComplete">Войти</button>
-                <button id="pwdComplete" href="#pwdForm">Забыли пароль?</button>
+                <button id="pwdComplete" class="popup" href="#pwdForm">Забыли пароль?</button>
             </div>
-            
+
     </div>
     </form>
     </div>
     <div class="hidden">
         <form id="pwdForm" action="login.php" method="POST">
-            <h1 id="pwdh1" style="display:none;">Смена пароля</h1>
-            <p id="pwdField2" style="display:none;">Введите почту</p>
-            <input id="pwdField1" type="text" name="email" maxlength="30" style="display:none; " /><br>
-            <div id="pwdid" style="display:none; text-align:center">
+            <h1>Смена пароля</h1>
+            <p>Введите почту</p>
+            <input id="pwdField1" type="text" name="email" maxlength="30" /><br>
+            <div style="text-align:center">
                 <button id="pwdComplete1">Сменить пароль</button>
             </div>
         </form>

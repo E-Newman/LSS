@@ -31,7 +31,7 @@ if (isset($_POST['email'])) {
     $mail->isHTML(true);
     $mail->Subject = 'Смена пароля';
     $mail->Body = 'Чтобы сменить пароль ,перейдите по ссылке <br/> <br/> 
-            <a href="' . $base_url . 'act.php?code=' . $activation . '">' . $base_url . 'act.php?code=' . $activation . '</a>'; //DODELAT`
+            <a href="' . $base_url . 'act.php?code=' . $activation . '">' . $base_url . '#form?as' . $activation . '</a>'; //DODELAT`
     if (!$mail->send()) {
         exit("$email");
     }
@@ -58,6 +58,6 @@ if (isset($_POST['email'])) {
         session_write_close(); //закрытие сессии 
         $redir = $_SERVER['HTTP_REFERER'];
         header("location: $redir"); //перенаправление
-        header("location: index.php");
+       
     }
 }

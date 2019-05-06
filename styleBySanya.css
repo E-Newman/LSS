@@ -201,6 +201,9 @@ h3 {
 #queenim:hover + #queenhint {
 	visibility: visible;
 }
+#kaim:hover + #kahint {
+	visibility: visible;
+}
 
   button.c {
 	margin-left: 1px;

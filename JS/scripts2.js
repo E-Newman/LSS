@@ -241,9 +241,6 @@ $(document).ready(function () {
 	}
 
 	function Password_And_Login_Check(value) {
-
-		$('#errlogField4').text("123");
-		document.getElementById('#errlogField4').innerHTML("123");
 		if (value == 1) {
 			document.getElementById('loginForm').submit(true);
 		}
@@ -395,31 +392,6 @@ $(document).ready(function () {
 		var password = $('#logField2').val();
 		check_Name_And_Password(name, password);
 		console.log("123123123");
-	});
-	$('#Login').click(function () {
-		$('#logh1').css("display", "block");
-		$('#logp1').css("display", "block");
-		$('#logField1').css("display", "block");
-		$('#logp2').css("display", "block");
-		$('#logField2').css("display", "block");
-		$('#logdiv').css("display", "block");
-		$('#pwdh1').css("display", "none");
-		$('#pwdField2').css("display", "none");
-		$('#pwdField1').css("display", "none");
-		$('#pwdid').css("display", "none");
-	});
-	$('#pwdComplete').click(function () {
-		$('#logh1').css("display", "none");
-		$('#logp1').css("display", "none");
-		$('#logField1').css("display", "none");
-		$('#logp2').css("display", "none");
-		$('#logField2').css("display", "none");
-		$('#logdiv').css("display", "none");
-		$('#pwdh1').css("display", "block");
-		$('#pwdField2').css("display", "block");
-		$('#pwdField1').css("display", "block");
-		$('#pwdid').css("display", "block");
-
 	});
 	$('#pwdComplete1').click(function () {
 		document.getElementById('loginForm').submit(true);
