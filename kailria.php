@@ -453,6 +453,7 @@ session_start();
 			</div>
 			<div style="display:block; width:25%; margin-top:1%; margin-bottom:110em; margin-left:1%;">
 				<!--у всех боттом нормальный?-->
+				<button class="headbutton" onClick='location.href="wiki.php"' style="margin-bottom:5%; margin-left:20%;">К вселенной</button>
 				<div class="eventblock" style="margin-bottom:20%;">
 					<h3>Навигация по энциклопедии</h3>
 					<!--TODO: заполнить-->

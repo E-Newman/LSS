@@ -32,7 +32,7 @@
 		</div>    
 		<div class = "head" style="margin-right: 5px; ">
 			<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
-			<button class="headbutton user" onClick='location.href="me.php"' >Личный кабинет</button>
+			<button class="headbutton user" onClick='location.href="../../me.php"' >Личный кабинет</button>
 			<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
 		</div>
 	</div>
