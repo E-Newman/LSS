@@ -5,13 +5,12 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<?php if(empty($_SESSION['login'])){
-
-            
-echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
-} else {	
+	<?php if(empty($_SESSION['login'])){            
+		echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+	} else {
+		$_SESSION['prevpage'] = 'wiki.php';
 		 echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
-}
+	}
 ?>
     <meta charset="utf-8" />
 	<title>Лианкины истории: вселенная</title>
@@ -37,6 +36,7 @@ echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
 			<div class = "head" style="margin-right: 5px; ">
 			<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
             <button class="headbutton user" onClick='location.href="me.php"' >Личный кабинет</button>
+			<button class="headbutton popup auth user" onClick='location.href="logout.php"'>Выйти</button>
 			<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
             </div>
             

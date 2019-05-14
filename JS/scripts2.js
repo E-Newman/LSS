@@ -1,9 +1,14 @@
 $(document).ready(function () {
+	var base_url = '';
+	window.onload = function(){
+		if (window.href == "index.php") base_url = "";
+		else base_url = '/';
+	}
 	function loadmore(btn_more, count_show, count_add, type_query) {
 
 		$.ajax({
 
-			url: "ajax.php", // куда отправляем
+			url: base_url + "ajax.php", // куда отправляем
 			type: "post", // метод передачи
 			dataType: "json", // тип передачи данных
 			data: { // что отправляем
@@ -51,7 +56,7 @@ $(document).ready(function () {
 
 		$.ajax({
 
-			url: "ajax.php", // куда отправляем
+			url: base_url + "ajax.php", // куда отправляем
 			type: "post", // метод передачи
 			dataType: "json", // тип передачи данных
 			data: { // что отправляем
@@ -134,7 +139,7 @@ $(document).ready(function () {
 
 		$.ajax({
 
-			url: "ajax.php",
+			url: base_url + "ajax.php",
 			type: "post",
 			dataType: "json",
 			data: {
@@ -169,7 +174,7 @@ $(document).ready(function () {
 
 		$.ajax({
 
-			url: "ajax.php",
+			url: base_url + "ajax.php",
 			type: "post",
 			dataType: "json",
 			data: {
@@ -354,7 +359,7 @@ $(document).ready(function () {
 			$('#errField4').css("display", "block");
 			$('#regField3').css("border-color", "red");
 			fortest++;
-			
+
 		}
 		//Проверка пароля на равенство с вторым паролем
 		$('#regField4').css("border-color", "grey");
@@ -362,9 +367,9 @@ $(document).ready(function () {
 		$('#errField4').css("display", "none");
 
 		if ($('#regField3').val() != $('#regField4').val()) {
-		$('#errField5').css("display", "block");
-		$('#regField4').css("border-color", "red");
-		fortest++;
+			$('#errField5').css("display", "block");
+			$('#regField4').css("border-color", "red");
+			fortest++;
 
 		}
 		//Валидация кнопки "Я соглашаюсь на обработку персональных данных"
@@ -385,7 +390,6 @@ $(document).ready(function () {
 		}
 	});
 	$('#logComplete').click(function () {
-
 		var name = $('#logField1').val();
 		var password = $('#logField2').val();
 		check_Name_And_Password(name, password);
@@ -394,7 +398,7 @@ $(document).ready(function () {
 		document.getElementById('loginForm').submit(true);
 	});
 	$('#select').change(function () {
-		var links = { "index": "index.php", "wiki": "wiki.php", "news": "news.php" };
+		var links = { "index":  base_url + "index.php", "wiki": base_url + "wiki.php", "news": base_url + "news.php" };
 		var a = this.value
 		window.location.href = links[a];
 	});

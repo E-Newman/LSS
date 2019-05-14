@@ -6,7 +6,8 @@
         <title>Ошибка!</title>	
 		<?php if(empty($_SESSION['login'])){           
 				echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
-			} else {	
+			} else {
+				$_SESSION['prevpage'] = 'error.php';
 				echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
 			}
 		?>
@@ -84,6 +85,7 @@
 					<div class = "head" style="margin-right: 5px; ">
 						<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
 						<button class="headbutton user" onClick='location.href="me.php"' >Личный кабинет</button>
+						<button class="headbutton popup auth user" onClick='location.href="logout.php"'>Выйти</button>
 						<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
 					</div>
 				</div>

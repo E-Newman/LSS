@@ -4,17 +4,18 @@
 <html>
     <head>
         <title>Лианкины истории: <?php echo 'профиль пользователя ' . $_SESSION["login"]; ?></title>
-        <?php if(empty($_SESSION['login'])){
-
-            
+        <?php if(empty($_SESSION['login'])){            
             echo 'Авторизуйтесь'; // TODO: нормальное сообщение об ошибке
-            } else {	
+            } else {
+				$_SESSION['prevpage'] = 'index.php';
                 echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
             }
 	    ?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"  type="text/javascript"></script>
         <script src="/JS/scripts.js" type="text/javascript"></script>
+		<script src="libs/magnific-popup/jquery.magnific-popup.min.js"></script>
 		<style>
 			p {
 				color: white;

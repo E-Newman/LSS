@@ -4,16 +4,15 @@
 <html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<?php if(empty($_SESSION['login'])){
-
-            
-echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
-} else {	
-         echo ' <link rel="stylesheet" type="text/css" href="exprbySanya.css"> ';
-}
+<?php if(empty($_SESSION['login'])){            
+			echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+		} else {
+			$_SESSION['prevpage'] = 'news.php';
+			echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
+		}
 ?>
     <meta charset="utf-8" />
-    <title>Лианкины истории</title>
+    <title>Лианкины истории: новости</title>
     <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="/JS/scripts.js" type="text/javascript"></script>
@@ -32,6 +31,7 @@ echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
 			<div class = "head" style="margin-right: 5px; ">
 			<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
             <button class="headbutton user" onClick='location.href="me.php"' >Личный кабинет</button>
+			<button class="headbutton popup auth user" onClick='location.href="logout.php"'>Выйти</button>
 			<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
             </div>
             

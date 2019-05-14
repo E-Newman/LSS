@@ -7,19 +7,17 @@
 <head>
 <?php if(empty($_SESSION['login'])){           
 		echo ' <link rel="stylesheet" type="text/css" href="../../styleforexperiments.css"> ';
-	} else {	
+	} else {
+		$_SESSION['prevpage'] = 'articles/kailria/grazhdanskaya_voyna_v_kailrii.php';
 		echo ' <link rel="stylesheet" type="text/css" href="../../styleBySanya.css"> ';
 	}
 ?>
 <meta charset="utf-8" />
 <title>Гражданская война в Каильрии</title> <!--TODO: название статьи через запрос-->
-<link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
+<link rel="stylesheet" href="../../libs/magnific-popup/magnific-popup.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="../../JS/scripts.js" type="text/javascript"></script>
-<script src="libs/magnific-popup/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript">
-	var links = { 'index': 'index.php', 'wiki': 'wiki.php', 'news': 'news.php' };
-</script>
+<script src="../../JS/scripts2.js" type="text/javascript"></script>
+<script src="../../libs/magnific-popup/jquery.magnific-popup.min.js"></script>
 <style>
 </style>
 </head>
@@ -33,6 +31,7 @@
 		<div class = "head" style="margin-right: 5px; ">
 			<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
 			<button class="headbutton user" onClick='location.href="../../me.php"' >Личный кабинет</button>
+			<button class="headbutton popup auth user" onClick='location.href="../../logout.php"'>Выйти</button>
 			<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
 		</div>
 	</div>
@@ -40,7 +39,7 @@
 <body>
 	<div class="headfoot" style="height:0.1em"></div>
 		<div class="hidden">
-		<form id="regForm" action="reg.php" method="POST" onsubmit="return false">
+		<form id="regForm" action="../../reg.php" method="POST" onsubmit="return false">
 			<h1>Регистрация</h1>
 			<p>Имя пользователя:</p>
 			<input id="regField1" type="text" name="name" required maxlength="15"/><br>
@@ -72,7 +71,7 @@
 		</form>
 	</div>
 	<div class="hidden">
-		<form id="loginForm" action="login.php" method="POST" onsubmit="return false">
+		<form id="loginForm" action="../../login.php" method="POST" onsubmit="return false">
 			<h1>Войти</h1>
 			<p>Имя пользователя:</p>
 			<input id="logField1" type="text" name="name" required maxlength="15"/><br>
