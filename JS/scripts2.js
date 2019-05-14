@@ -38,8 +38,6 @@ $(document).ready(function () {
 					}
 
 				} else if (data.result == "finish") {
-					console.log(data.qw);
-					console.log(data.we);
 					btn_more.css("display", "none");
 				}
 
@@ -356,16 +354,18 @@ $(document).ready(function () {
 			$('#errField4').css("display", "block");
 			$('#regField3').css("border-color", "red");
 			fortest++;
-
+			
 		}
 		//Проверка пароля на равенство с вторым паролем
 		$('#regField4').css("border-color", "grey");
 		$('#errField5').css("display", "none");
 		$('#errField4').css("display", "none");
+
 		if ($('#regField3').val() != $('#regField4').val()) {
-			$('#errField5').css("display", "block");
-			$('#regField4').css("border-color", "red");
-			fortest++;
+		$('#errField5').css("display", "block");
+		$('#regField4').css("border-color", "red");
+		fortest++;
+
 		}
 		//Валидация кнопки "Я соглашаюсь на обработку персональных данных"
 
@@ -383,15 +383,12 @@ $(document).ready(function () {
 			document.getElementById('regForm').submit(true);
 
 		}
-
-
 	});
 	$('#logComplete').click(function () {
 
 		var name = $('#logField1').val();
 		var password = $('#logField2').val();
 		check_Name_And_Password(name, password);
-		console.log("123123123");
 	});
 	$('#pwdComplete1').click(function () {
 		document.getElementById('loginForm').submit(true);

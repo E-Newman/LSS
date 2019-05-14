@@ -48,7 +48,6 @@ if (isset($_POST['email'])) {
     } else {
         $queryUser1 = "SELECT * FROM Users WHERE user_id = '$id'  AND  activation_status = 1";
         if (($sqlresult1 = mysqli_query($link, $queryUser1)) == FALSE) {
-            exit("1231231232");
         }
         $_SESSION['password'] = $password;
         $_SESSION['login'] = $login;

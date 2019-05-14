@@ -151,12 +151,12 @@ if ($type_query == 5) {
 	$query = "SELECT * FROM Articles WHERE isTemplate= 0 AND type = '$article_type' AND world = '$world_type' ORDER BY article_id ASC LIMIT $startIndex, $countView";
 
 	$sqlresult = mysqli_query($link, $query);
-	$xui = array();
-	while ($xueviresult = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
-		$xui[] = $xueviresult;
+	$wrldarray = array();
+	while ($wrldresult = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
+		$wrldarray[] = $wrldresult;
 	}
 
-	if (empty($xui)) {
+	if (empty($wrldarray)) {
 		// если новостей нет
 		echo json_encode(array(
 			'result'    => 'finish'
@@ -165,7 +165,7 @@ if ($type_query == 5) {
 		// если новости получили из базы, то сформируем html элементы
 		// и отдадим их клиенту
 		$html = "";
-		foreach ($xui as $character) {
+		foreach ($wrldarray as $character) {
 			$temp=substr($character['content'],0,strpos($character['content'],".",strpos($character['content'],".")+1));
 			$html .= "   
 						<div class= 'b'>

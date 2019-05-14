@@ -9,7 +9,7 @@
             
             echo 'Авторизуйтесь'; // TODO: нормальное сообщение об ошибке
             } else {	
-                     echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+                echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
             }
 	    ?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -22,6 +22,7 @@
 			}
 		</style>
 	</head>
+	<?php if(isset($_SESSION['login'])) { ?>
     <body>
         <header class="headfoot">
 			<div class="head" style="margin-left:80%;">
@@ -69,8 +70,8 @@
 				<h3 style="margin-left:5%;">Зарегистрированные пользователи</h3>
 				<div class="eventblock" style="margin-bottom:20%; margin-left:0%; width: 100%;">
 					<!--TODO: заполнить-->
-				</div
+				</div>
 			</div>
 		</div>
-    </body>
+    </body> <?php } ?>
 </html>
