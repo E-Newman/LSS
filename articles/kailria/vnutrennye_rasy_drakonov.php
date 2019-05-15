@@ -105,8 +105,7 @@
 		<img src="../../images/star.png" style="display:inline; margin-left:10%;" width=50 height=50 />
 	</div>
 	<div class="content" style="align-items: flex-start;justify-content: flex-start; margin-top:1em;">
-				<input name="search" type="text" style="font-family: Columbina; margin-left:30%; margin-top:1em; width:35%; height:40%;
-					border-radius: 1em;" placeholder="Поиск"/>
+				<input name="search" type="text" class="search" placeholder="Поиск"/>
 				<button class="headbutton" style="width:5%">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
 				<select id ="select" class="navsel">

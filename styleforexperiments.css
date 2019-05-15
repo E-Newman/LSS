@@ -27,6 +27,12 @@ div.content {
     align-items: center; 
     justify-content: center;
 }
+
+div.content-top {
+	display: flex; 
+    justify-content: center;
+}
+
 .mainLink {
     font-family: 'Columbina';
     font-size: 1.5em;
@@ -175,10 +181,20 @@ h3 {
     background: radial-gradient(ellipse at center, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
     font-family: 'Columbina';
     border-radius: 1em;
-	margin-left: 5%;
+	margin-left: 2%;
     margin-right: 5px;
-    min-width: 250px;
-	width: 8%;
+	margin-top:1%;
+    min-width: 100px;
+	width: 30%;
+}
+
+.search {
+	font-family: Columbina;
+	margin-left:30%;
+	margin-top:1em;
+	width:30%;
+	height:40%;
+	border-radius: 1em;
 }
 
 .worldhint {

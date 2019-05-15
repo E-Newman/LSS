@@ -111,19 +111,19 @@
 			<h2>Галерея</h2>
 			<div class="content" style="background-color:white; border-style:solid; border-color:black; border-width:2px;
 				border-radius: 1em; width:40%; margin-left:30%; margin-top:1em;"> <!--норм див?--><!--норм,ток маргины лучше писать в %(с)Александер-->
-				<img src="images/test.png" style="margin:1em;" height=5% />
-				<img src="images/test.png" style="margin:1em;" height=5% />
-				<img src="images/test.png" style="margin:1em;" height=5% />
+				<img src="images/test.png" style="margin:1em; height:5%;" />
+				<img src="images/test.png" style="margin:1em; height:5%;" />
+				<img src="images/test.png" style="margin:1em; height:5%;" />
 			</div>
 		</div>
 		<div class="content" style="align-items: flex-start;justify-content: flex-start;">
 			<div style="padding-top:1%; padding-bottom:1%;  width:78%;"> 
 				<div class="sub" style="display:inline-block; margin-left:5%;">Дрэго (Астарм)</div> 
 				<a id="dregoim" href='drego.php'><img src="images/planet.png" height=80px width=80px style="border-radius:50%; margin-left:5%; display:inline-block;"/></a>
-				<div class="sub" style="margin-left:5em;display:inline-block;">Проект Королева</div>
+				<div class="sub" style="margin-left:3em;display:inline-block;">Проект Королева</div>
 				<a id="queenim" href='queen.php'><img src="images/planet.png" height=80px width=80px caption="Проект Королева" style="border-radius:50%; display:inline-block;
 					margin-left:5%;"/></a>
-				<div class="sub" style="margin-left:5em;display:inline-block;">Каильрия</div>
+				<div class="sub" style="margin-left:3em;display:inline-block;">Каильрия</div>
 				<a id="kaim" href='kailria.php'><img src="images/planet.png" height=80px width=80px caption="Каильрия" style="border-radius:50%; display:inline-block;
 					margin-left:5%;"/></a>
 				<p></p>
@@ -134,7 +134,7 @@
 					<p>Наличие магии: стихийная, у единиц - истинная</p>
 					<p>Уровень развития: традиционное патриархальное общество</p>
 				</div>
-				<div class="worldhint" id="queenhint" style="margin-left:15%; display:inline-block;">
+				<div class="worldhint" id="queenhint" style="margin-left:5%; display:inline-block;">
 					<p>Книги по миру: "Проект Королева", "Проект Королева. Пески Бескрайней"</p>
 					<p>Упоминается в: -</p>
 					<p>Расы: люди, драконы</p>

@@ -33,8 +33,7 @@
         <div class="headfoot" style="height:0.1em"></div>
 		<h1 style="font-family:Columbina; font-size:40px; color:white; margin-left:20%; margin-top:2%;"><?php echo 'Профиль пользователя ' . $_SESSION["login"]; ?> </h1>
 		<div class="content" style="align-items: flex-start;justify-content: flex-start;">
-				<input name="search" type="text" style="font-family: Columbina; margin-left:30%; margin-top:1em; width:35%; height:40%;
-					border-radius: 1em;" placeholder="Поиск"/>
+				<input name="search" type="text" class="search" placeholder="Поиск"/>
 				<button class="headbutton" style="width:5%">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
 				<select id ="select" class="navsel">

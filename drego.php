@@ -111,8 +111,7 @@ session_start();
             </form>
         </div>
 		<div class="content" style="align-items: flex-start;justify-content: flex-start;">
-				<input name="search" type="text" style="font-family: Columbina; margin-left:30%; margin-top:1em; width:35%; height:40%;
-					border-radius: 1em;" placeholder="Поиск"/>
+				<input name="search" type="text" class="search" placeholder="Поиск"/>
 				<button class="headbutton" style="width:5%">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
 				<select id ="select" class="navsel">
@@ -125,7 +124,7 @@ session_start();
 					<option>Обратная связь</option>
 				</select>
 		</div>
-		<div class="content">
+		<div class="content-top">
 			<div style="margin-right:1%; width:70%;">
 				<div id="charcontent">
 					<h2>Персонажи</h2>
@@ -151,7 +150,7 @@ session_start();
 				<h5>
 					<input id="show_characters" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "char" type="button" class="loadmore mooer" value="Показать еще" />
 				</h5>
-				<div id="profcontent">
+				<div id="profcontent" style="display:none">
 					<h2>Профессии</h2>
 					<div class="b">
 						<p class="a">
@@ -203,7 +202,8 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_prof" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "prof" type="button" class="loadmore mooer" value="Показать еще" />
+					<input id="show_prof" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "prof" type="button"
+					class="loadmore mooer" value="Показать еще" style="display:none"/>
 				</h5>
 				<div id="racecontent">
 					<h2>Расы</h2>
@@ -230,7 +230,7 @@ session_start();
 				<h5>
 					<input id="show_race" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "race" type="button" class="loadmore mooer" value="Показать еще" />
 				</h5>
-				<div id="placecontent">
+				<div id="placecontent" style="display:none">
 					<h2>Места</h2>
 					<div class="b">
 						<p class="a">
@@ -282,9 +282,10 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_place" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "place" type="button" class="loadmore mooer" value="Показать еще" />
+					<input id="show_place" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "place" type="button"
+					class="loadmore mooer" value="Показать еще" style="display:none" />
 				</h5>
-				<div id="buildcontent">
+				<div id="buildcontent" style="display:none">
 					<h2>Сооружения</h2>
 					<div class="b">
 						<p class="a">
@@ -336,9 +337,10 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_build" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "build" type="button" class="loadmore mooer" value="Показать еще" />
+					<input id="show_build" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "build" type="button"
+					class="loadmore mooer" value="Показать еще" style="display:none" />
 				</h5>
-				<div id="eventcontent">
+				<div id="eventcontent" style="display:none">
 					<h2>События</h2>
 					<div class="b">
 						<p class="a">
@@ -360,9 +362,10 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_event" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "event" type="button" class="loadmore mooer" value="Показать еще" />
+					<input id="show_event" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "event" type="button"
+					class="loadmore mooer" value="Показать еще" style="display:none"/>
 				</h5>
-				<div id="artcontent">
+				<div id="artcontent" style="display:none">
 					<h2>Артефакты</h2>
 					<div class="b">
 						<p class="a">
@@ -414,10 +417,11 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_art" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "art" type="button" class="loadmore mooer" value="Показать еще" />
+					<input id="show_art" count_show="0" count_add="2" type_query="5" world_type="dr" article_type = "art" type="button"
+					class="loadmore mooer" value="Показать еще" style="display:none"/>
 				</h5>
 			</div>
-			<div style="display:inline-block; width:25%; margin-top:1%; margin-left:1%; margin-bottom:132em;">
+			<div style="display:inline-block; width:25%; margin-top:3%; margin-left:1%;">
 				<!--у всех боттом нормальный?-->
 				<button class="headbutton" onClick='location.href="wiki.php"' style="margin-bottom:5%; margin-left:20%;">К вселенной</button>
 				<div class="eventblock" style="margin-bottom:20%;">
