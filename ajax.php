@@ -162,26 +162,27 @@ if ($type_query == 5) {
 			'result'    => 'finish'
 		));
 	} else {
-		// если новости получили из базы, то сформируем html элементы
-		// и отдадим их клиенту
 		$html = "";
 		foreach ($wrldarray as $character) {
-			$temp=substr($character['content'],0,strpos($character['content'],".",strpos($character['content'],".")+1));
-			$html .= "   
-						<div class= 'b'>
-						<p class= 'a'>
+			$temp=substr($character['content'],0,strpos($character['content'],".",strpos($character['content'],".")+1));		
+			$html .= "
+			<div class= 'b'>
+			<p class= 'a'>
 						{$character['header']}
 						</p>
 						<p class= 'c'>
 						{$temp}...
 						</p>
-						<button class='btn'>Читать</button>
-						</div>";
+						<a class='btn' href= 'articlecontent.php?id=".$character['article_id']."' >Читать</a>						
+						</div>						
+						";
 		}
+		//<button class='btn' id_id='".$character['article_id']."'>Читать</button>
 		echo json_encode(array(
 			'result'    => 'success',
 			'query'    => $article_type,
-			'html'      => $html
+			'html'      => $html,
+			 
 		));
 	}
 }

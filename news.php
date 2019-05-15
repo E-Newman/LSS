@@ -91,20 +91,20 @@
                 Новости
             </div>
         </h1>
-        <div class="content">
-			<input name="search" type="text" style="font-family: Columbina; margin-left:15%; margin-top:1em; width:35%; height:40%;
-				border-radius: 1em;" placeholder="Поиск" />
-			<button class="headbutton" style="width:5%">Найти</button>
-			<!--TODO: попытка перейти выдаёт undefined-->
-			<select id="select" class="navsel">
-				<option value="0">Навигация</option>
-				<option value="index">Главная страница</option>
-				<option value="wiki">Вселенная</option>
-				<option value="news">Новости</option>
-				<option>Блог</option>
-				<option>Книги</option>
-				<option>Обратная связь</option>
-			</select>
+        <div class="content" style="align-items: flex-start;justify-content: flex-start;">
+				<input name="search" type="text" style="font-family: Columbina; margin-left:30%; margin-top:1em; width:35%; height:40%;
+					border-radius: 1em;" placeholder="Поиск"/>
+				<button class="headbutton" style="width:5%">Найти</button>
+				<!--TODO: попытка перейти выдаёт undefined-->
+				<select id ="select" class="navsel">
+					<option value="0">Навигация</option>
+					<option value="index">Главная страница</option>
+					<option value="wiki">Вселенная</option>
+					<option value="news">Новости</option>
+					<option>Блог</option>
+					<option>Книги</option>
+					<option>Обратная связь</option>
+				</select>
 		</div>
         <h3>
             <div class="b">

@@ -93,7 +93,7 @@ div.content {
 
 .eventblock {
     background-color: silver;
-    width: 30em;
+    width: 20em;
     height: 30em;
     display: block;
     margin-left: 15%;
@@ -130,7 +130,7 @@ h3 {
 
 .sub {
     font-family: Columbina;
-    font-size: x-large;
+    font-size: large;
     color: white;
 	display:inline-block;
 }
@@ -175,10 +175,10 @@ h3 {
     background: radial-gradient(ellipse at center, rgba(125,181,243,1) 0%, rgba(125,181,243,1) 56%, rgba(3,70,138,1) 100%);
     font-family: 'Columbina';
     border-radius: 1em;
-	margin-left: 5px;
+	margin-left: 5%;
     margin-right: 5px;
-    min-width: 100px;
-	width: 5%;
+    min-width: 250px;
+	width: 8%;
 }
 
 .worldhint {
@@ -194,15 +194,15 @@ h3 {
 	visibility:hidden;
 }
 
-#dregoim:hover + #dregohint {
+#dregoim:hover ~ #dregohint {
 	visibility: visible;
 }
 
-#queenim:hover + #queenhint {
+#queenim:hover ~ #queenhint {
 	visibility: visible;
 }
 
-#kaim:hover + #kahint {
+#kaim:hover ~ #kahint {
 	visibility: visible;
 }
 
@@ -235,11 +235,7 @@ h3 {
 	}
 	p.a
 	{
-		
-		height: 5%;
-		margin-top: 1.5%;
-  	        margin-left: 1.5%;
-		margin-right: 1.5%;
+		height: 2em;
 		font-size: 28pt;		
 	}
 	p.b
@@ -249,11 +245,7 @@ h3 {
 			margin-right: 1.5%;
 		}
 	p.c{
-			overflow:auto;
-			height: 40%;
-			margin-top: 20%;
-			margin-left: 1.5%;
-			margin-right: 1.5%;
+			height: 7em;
 		}
 
 

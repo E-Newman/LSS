@@ -19,6 +19,7 @@
             <a class="headbutton" style="margin-left:1em;" href="">Другие проекты</a>
             <a class="headbutton popup" style="margin-left:65em;" href="#loginForm">Войти</a>
             <a class="headbutton popup" style="margin-left:75em;" href="#regForm">Регистрация</a>
+            <button onClick="location.href='articlecontent.php?id=17'">Зasdабыли пароль?</button>
         </header>
         <div class="headfoot" style="height:0.1em"></div>
         <div class="hidden">

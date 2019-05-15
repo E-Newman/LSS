@@ -92,12 +92,12 @@
 				</div>
 				</form>
         </div>
-		<div class="content">
-				<input name="search" type="text" style="font-family: Columbina; margin-left:15%; margin-top:1em; width:35%; height:40%;
+		<div class="content" style="align-items: flex-start;justify-content: flex-start;">
+				<input name="search" type="text" style="font-family: Columbina; margin-left:30%; margin-top:1em; width:35%; height:40%;
 					border-radius: 1em;" placeholder="Поиск"/>
 				<button class="headbutton" style="width:5%">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
-				<select id = "select" class="navsel">
+				<select id ="select" class="navsel">
 					<option value="0">Навигация</option>
 					<option value="index">Главная страница</option>
 					<option value="wiki">Вселенная</option>
@@ -110,48 +110,46 @@
 		<div style="text-align:center">
 			<h2>Галерея</h2>
 			<div class="content" style="background-color:white; border-style:solid; border-color:black; border-width:2px;
-				border-radius: 1em; width:35em; margin-left:25%; margin-top:1em;"> <!--норм див?--><!--норм,ток маргины лучше писать в %(с)Александер-->
-				<img src="images/test.png" style="margin:1em;" height=150px />
-				<img src="images/test.png" style="margin:1em;" height=150px />
-				<img src="images/test.png" style="margin:1em;" height=150px />
+				border-radius: 1em; width:40%; margin-left:30%; margin-top:1em;"> <!--норм див?--><!--норм,ток маргины лучше писать в %(с)Александер-->
+				<img src="images/test.png" style="margin:1em;" height=5% />
+				<img src="images/test.png" style="margin:1em;" height=5% />
+				<img src="images/test.png" style="margin:1em;" height=5% />
 			</div>
 		</div>
-		<div class="content">
-			<div style=" padding-top:1%; padding-bottom:1%;"> 
-				<div class="sub" style="margin-left:14em; display:inline-block;">Дрэго</div> 
-				<a id="dregoim" href='drego.php'><img src="images/planet.png" height=80px width=80px style="border-radius:50%; margin-left:85%;  display:inline-block;"/></a>		
-				<div class="worldhint" id="dregohint" style="margin-left:35%">
-					<p>Название мира: Астарм</p>
+		<div class="content" style="align-items: flex-start;justify-content: flex-start;">
+			<div style="padding-top:1%; padding-bottom:1%;  width:78%;"> 
+				<div class="sub" style="display:inline-block; margin-left:5%;">Дрэго (Астарм)</div> 
+				<a id="dregoim" href='drego.php'><img src="images/planet.png" height=80px width=80px style="border-radius:50%; margin-left:5%; display:inline-block;"/></a>
+				<div class="sub" style="margin-left:5em;display:inline-block;">Проект Королева</div>
+				<a id="queenim" href='queen.php'><img src="images/planet.png" height=80px width=80px caption="Проект Королева" style="border-radius:50%; display:inline-block;
+					margin-left:5%;"/></a>
+				<div class="sub" style="margin-left:5em;display:inline-block;">Каильрия</div>
+				<a id="kaim" href='kailria.php'><img src="images/planet.png" height=80px width=80px caption="Каильрия" style="border-radius:50%; display:inline-block;
+					margin-left:5%;"/></a>
+				<p></p>
+				<div class="worldhint" id="dregohint" style="margin-left:5%; display:inline-block;">
 					<p>Книги по миру: "Дрэго", "Тинни и Тени"</p>
-					<p>Упоминается в: (что здесь?)</p>
+					<p>Упоминается в: -</p>
 					<p>Расы: люди, различные виды драконов...</p>
-					<p>Наличие магии: есть, развита</p>
-					<p>Уровень развития: средний</p>
+					<p>Наличие магии: стихийная, у единиц - истинная</p>
+					<p>Уровень развития: традиционное патриархальное общество</p>
 				</div>
-				<div class="sub" style="margin-left:5em;display:inline-block; padding-top:1%; padding-bottom:1%;">Проект Королева</div>
-				<img id="queenim" src="images/planet.png" height=80px width=80px caption="Проект Королева" style="border-radius:50%; display:inline-block;
-					margin-left:60%;"/>
-				<div class="worldhint" id="queenhint" style="margin-left:15%;">
-					<p>Название мира: Земля R-2,1/imp-17-46-278-t(p)</p>
-					<p>Книги по миру: "Проект Королева"</p>
-					<p>Упоминается в: (что здесь?)</p>
+				<div class="worldhint" id="queenhint" style="margin-left:15%; display:inline-block;">
+					<p>Книги по миру: "Проект Королева", "Проект Королева. Пески Бескрайней"</p>
+					<p>Упоминается в: -</p>
 					<p>Расы: люди, драконы</p>
-					<p>Наличие магии: нет</p>
+					<p>Наличие магии: магия стихий</p>
 					<p>Уровень развития: современность</p>
 				</div>
-				<div class="sub" style="margin-left:5em;display:inline-block; padding-top:1%; padding-bottom:1%;">Каильрия</div>
-				<a id="kaim" href='kailria.php'><img src="images/planet.png" height=80px width=80px caption="Каильрия" style="border-radius:50%; display:inline-block;
-					margin-left:60%;"/></a>
-				<div class="worldhint" id="kahint" style="margin-left:15%;">
-					<p>Название мира: Каильрия</p>
-					<p>Книги по миру: </p>
-					<p>Упоминается в: </p>
-					<p>Расы: драконы</p>
-					<p>Наличие магии: </p>
-					<p>Уровень развития: </p>
+				<div class="worldhint" id="kahint" style="margin-left:5%; display:inline-block;">
+					<p>Книги по миру: -</p>
+					<p>Упоминается в: "Проект Королева", "Проект Королева. Пески Бескрайней", "Дрэго", цикл "Белый дневник"</p>
+					<p>Расы: драконы, люди, оборотни и др.</p>
+					<p>Наличие магии: все виды магии</p>
+					<p>Уровень развития: традиционное патриархальное общество</p>
 				</div>
 			</div>
-			<div class="eventblock">
+			<div class="eventblock" style="margin-left:0%; margin-right:0%;">
 				<h3>Ближайшие события</h3>
 				<div style="height:70%;">
 					<!--TODO сюда грузим события-->

@@ -7,9 +7,9 @@ session_start();
 
 <head>
     <?php if (empty($_SESSION['login'])) {
-		$_SESSION['prevpage'] = 'index.php';
         echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
     } else {
+		$_SESSION['prevpage'] = 'index.php';
         echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
     }
     ?>

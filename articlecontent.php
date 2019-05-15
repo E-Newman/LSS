@@ -1,5 +1,15 @@
 <?php
 	session_start();
+require_once 'databaseconnect.php';
+$link = mysqli_connect(HOST, USER, PASSWORD, DB_NAME);
+mysqli_set_charset($link, "utf8");
+$content_id= $_GET['id'];
+$query = "SELECT * FROM Articles WHERE article_id = '$content_id'";
+$sqlresult = mysqli_query($link, $query);
+$wrldarray = array();
+while ($wrldresult = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
+	$wrldarray[] = $wrldresult;
+}
 ?>
 <!DOCTYPE html>
 
@@ -8,18 +18,17 @@
 <?php if(empty($_SESSION['login'])){           
 		echo ' <link rel="stylesheet" type="text/css" href="../../styleforexperiments.css"> ';
 	} else {
-		$_SESSION['prevpage'] = 'articles/kailria/drevnie.php';
+		$_SESSION['prevpage'] = 'articles/drego/liara.php';
 		echo ' <link rel="stylesheet" type="text/css" href="../../styleBySanya.css"> ';
 	}
 ?>
 <meta charset="utf-8" />
-<title>Древние</title> <!--TODO: название статьи через запрос-->
+<title>Лиара</title> <!--TODO: название статьи через запрос-->
 <link rel="stylesheet" href="../../libs/magnific-popup/magnific-popup.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="../../JS/scripts2.js" type="text/javascript"></script>
 <script src="../../libs/magnific-popup/jquery.magnific-popup.min.js"></script>
-<style>
-</style>
+
 </head>
 <header class = "headfoot">
 	<div class = "head" style="margin-left: 5px;">
@@ -85,33 +94,51 @@
 			</div>
 			</form>
 	</div>
-	<div>
-		<h1 style="display:inline; font-family:Columbina; font-size:40px; color:white; padding-left:45%; padding-top:2%;">Древние</h1>
+	
+	<div class="content" style="margin-top:2%;">
+		<input name="search" type="text" style="font-family: Columbina; margin-left:15%; margin-top:1em; width:35%; height:40%;
+			border-radius: 1em;" placeholder="Поиск"/>
+		<button class="headbutton" style="width:5%">Найти</button>
+		<!--TODO: попытка перейти выдаёт undefined-->
+		<select id = "select" class="navsel">
+			<option value="0">Навигация</option>
+			<option value="index">Главная страница</option>
+			<option value="wiki">Вселенная</option>
+			<option value="news">Новости</option>
+			<option>Блог</option>
+			<option>Книги</option>
+			<option>Обратная связь</option>
+		</select>
+	</div>
+    <div>
+		<h1 id= "header_content" style="display:inline; font-family:Columbina; font-size:40px; color:white; padding-left:45%; padding-top:2%;">
+		<?php
+		foreach ($wrldarray as $content) {
+		print $content["header"];
+		}
+		?>
+		</h1>
 		<img src="../../images/star.png" style="display:inline; margin-left:10%;" width=50 height=50 />
 	</div>
-	<div class="content" style="align-items: flex-start;justify-content: flex-start; margin-top:1em;">
-				<input name="search" type="text" style="font-family: Columbina; margin-left:30%; margin-top:1em; width:35%; height:40%;
-					border-radius: 1em;" placeholder="Поиск"/>
-				<button class="headbutton" style="width:5%">Найти</button>
-				<!--TODO: попытка перейти выдаёт undefined-->
-				<select id ="select" class="navsel">
-					<option value="0">Навигация</option>
-					<option value="index">Главная страница</option>
-					<option value="wiki">Вселенная</option>
-					<option value="news">Новости</option>
-					<option>Блог</option>
-					<option>Книги</option>
-					<option>Обратная связь</option>
-				</select>
-		</div>
+
+
+
+
 	<div class="content" style="background-color:silver; border-color:black; border-width:2px; border-style:solid; border-radius:1em;
 				width:80%; margin-top:2%; margin-left:10%;">
-		<p class="arttext">
-			Раса создателей драконов. Создана Движением. Мигрировала из другой Вселенной. Изгнана в отдельную закрытую плоскость.
-			Древние изображаются как антропоморфные существа в свободных накидках и балахонах черного, красного или белого цвета,
-			скрывающих лицо и большую часть тела. Черная одежда - странствующего Древнего (рабочая). Белая - праздничная. Красная - церемониальная.
+		<p class="arttext" id= "contentp">
+		<?php
+		foreach ($wrldarray as $content) {
+		print $content["content"];
+		}
+		?>
 		</p>
 	</div>
+
+
+
+
+
 	<div style="background-color:silver; border-color:black; border-width:2px; border-style:solid; border-radius:1em; height:15em;
 				width:80%; margin-top:2%; margin-left:10%;">
 		<p style="margin-left:15%;">Никнейм</p>
@@ -122,3 +149,6 @@
 	</div>
 </body>
 </html>
+<?php
+mysqli_close($link);
+?>

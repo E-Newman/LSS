@@ -73,11 +73,12 @@ $(document).ready(function () {
 				if (data.result == "success") {
 					//Если запрос был к бд с Новостями 
 					if (data.query == "char") {
-
 						$('#charcontent').append(data.html);
+						//$('#charcontent').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
 						btn_more.attr('count_show', (count_show + 2));
+						
 					}
 					if (data.query == "prof") {
 
@@ -121,6 +122,8 @@ $(document).ready(function () {
 						//Увеличиваем начальный индекс на 3
 						btn_more.attr('count_show', (count_show + 2));
 					}
+					
+					
 
 
 				} else {
@@ -133,6 +136,7 @@ $(document).ready(function () {
 
 
 	}
+	
 	function check_Name_And_Password(name, password) {
 		//Тип запроса
 		var type_query = 4;
@@ -397,6 +401,7 @@ $(document).ready(function () {
 	$('#pwdComplete1').click(function () {
 		document.getElementById('loginForm').submit(true);
 	});
+	
 	$('#select').change(function () {
 		var links = { "index":  base_url + "index.php", "wiki": base_url + "wiki.php", "news": base_url + "news.php" };
 		var a = this.value

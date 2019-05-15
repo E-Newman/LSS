@@ -110,20 +110,20 @@ session_start();
 				</div>
 			</form>
 		</div>
-		<div class="content">
-			<input name="search" type="text" style="font-family: Columbina; margin-left:15%; margin-top:1em; width:35%; height:40%;
-				border-radius: 1em;" placeholder="Поиск" />
-			<button class="headbutton" style="width:5%">Найти</button>
-			<!--TODO: попытка перейти выдаёт undefined-->
-			<select id="select" class="navsel">
-				<option value="0">Навигация</option>
-				<option value="index">Главная страница</option>
-				<option value="wiki">Вселенная</option>
-				<option value="news">Новости</option>
-				<option>Блог</option>
-				<option>Книги</option>
-				<option>Обратная связь</option>
-			</select>
+		<div class="content" style="align-items: flex-start;justify-content: flex-start;">
+				<input name="search" type="text" style="font-family: Columbina; margin-left:30%; margin-top:1em; width:35%; height:40%;
+					border-radius: 1em;" placeholder="Поиск"/>
+				<button class="headbutton" style="width:5%">Найти</button>
+				<!--TODO: попытка перейти выдаёт undefined-->
+				<select id ="select" class="navsel">
+					<option value="0">Навигация</option>
+					<option value="index">Главная страница</option>
+					<option value="wiki">Вселенная</option>
+					<option value="news">Новости</option>
+					<option>Блог</option>
+					<option>Книги</option>
+					<option>Обратная связь</option>
+				</select>
 		</div>
 		<div class="content">
 			<div style="margin-right:1%; width:70%;">
@@ -453,7 +453,7 @@ session_start();
 					<input id="show_art" count_show="0" count_add="2" type_query="5" world_type="ka" article_type = "art" type="button" class="loadmore mooer" value="Показать еще" />
 				</h5>
 			</div>
-			<div style="display:block; width:25%; margin-top:1%; margin-bottom:110em; margin-left:1%;">
+			<div style="display:inline-block; width:25%; margin-top:1%; margin-left:1%; margin-bottom:132em;">
 				<!--у всех боттом нормальный?-->
 				<button class="headbutton" onClick='location.href="wiki.php"' style="margin-bottom:5%; margin-left:20%;">К вселенной</button>
 				<div class="eventblock" style="margin-bottom:20%;">
