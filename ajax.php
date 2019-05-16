@@ -186,4 +186,27 @@ if ($type_query == 5) {
 		));
 	}
 }
+if ($type_query == 6) {
+	
+	
+	$query = "SELECT DISTINCT world FROM Articles";
+	$sqlresult = mysqli_query($link, $query);
+	$wrldarray = array();
+	while ($wrldresult = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
+		$wrldarray[] = $wrldresult;
+	}
+
+	if (empty($wrldarray)) {
+		// если новостей нет
+		echo json_encode(array(
+			'result'    => 'finish'
+		));
+	}
+		echo json_encode(array(
+			'result'    => 'success',
+			'html'      => $wrldarray
+			 
+		));
+	
+}
 mysqli_close($link);

@@ -91,7 +91,7 @@
 	</div>
 	<div class="content" style="align-items: flex-start;justify-content: flex-start; margin-top:1em;">
 				<input name="search" type="text" class="search" placeholder="Поиск"/>
-				<button class="headbutton" style="width:5%">Найти</button>
+				<button class="headbutton" style="width:5%; margin-right:7%; height:25px; margin-top:1%;">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
 				<select id ="select" class="navsel">
 					<option value="0">Навигация</option>
@@ -107,8 +107,9 @@
 				width:80%; margin-top:2%; margin-left:10%;">
 		<p class="arttext">
 			Раса создателей драконов. Создана Движением. Мигрировала из другой Вселенной. Изгнана в отдельную закрытую плоскость.
-			Древние изображаются как антропоморфные существа в свободных накидках и балахонах черного, красного или белого цвета,
-			скрывающих лицо и большую часть тела. Черная одежда - странствующего Древнего (рабочая). Белая - праздничная. Красная - церемониальная.
+			<br><br>
+			Древние изображаются как антропоморфные существа в свободных накидках и балахонах черного, красного или белого цвета, скрывающих лицо и
+			большую часть тела. Черная одежда - странствующего Древнего (рабочая). Белая - праздничная. Красная - церемониальная.
 		</p>
 	</div>
 	<div style="background-color:silver; border-color:black; border-width:2px; border-style:solid; border-radius:1em; height:15em;

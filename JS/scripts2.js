@@ -171,7 +171,56 @@ $(document).ready(function () {
 		});
 
 	}
+	function check_worlds() {
+		//Тип запроса
+		var type_query = 6;
+		
+		$.ajax({
 
+			url: base_url + "ajax.php",
+			type: "post",
+			dataType: "json",
+			data: {
+
+				"type_query": type_query,
+
+			},
+
+			success: function (data) {
+
+				if (data.result == "success") {
+
+					check_mat(data.html);
+
+				}
+
+			}
+
+		});
+		
+	}
+	function check_mat(array) {
+
+		var html= " <select name = 'world_type' id='select2' class='navsel'>";
+		array.forEach(function(data, index){
+			
+			html += "<option value='" + data['world'] + "'>" + data['world'] + "</option>";
+			console.log(index);
+		});
+		html+= "</select>";
+		html+=" <select  name = 'article_type' id='select3' class='navsel'>" +
+		"<option value='race'>Расы</option>" +
+		"	<option value='event'>События</option>" +
+		"	<option value='char'>Новость</option>" +
+		"	<option value='prof'>Профессия</option> " +
+		"	<option value='place'>Место</option>" +
+		"	<option value='build'>Сооружение</option>" +
+		"   <option value='art'>Артефакты</option>" +
+			"</select>"
+		
+		$('#xui').append(html);
+		
+	}
 	function check_Mail_And_Name(name, email) {
 		//Тип запроса
 		var type_query = 3;
@@ -403,9 +452,19 @@ $(document).ready(function () {
 	});
 	
 	$('#select').change(function () {
-		var links = { "index":  base_url + "index.php", "wiki": base_url + "wiki.php", "news": base_url + "news.php" };
+		var links = { "index":  base_url + "index.php", "wiki": base_url + "wiki.php", "news": base_url + "news.php"};
 		var a = this.value
 		window.location.href = links[a];
+	});
+	$('#select1').change(function () {
+		if(this.value == "Articles")
+		{		
+			check_worlds();
+		} else {
+			$('#select2').remove();
+			$('#select3').remove();
+		}
+		console.log(this.value);
 	});
 
 

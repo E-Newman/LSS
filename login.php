@@ -50,6 +50,8 @@ if (isset($_POST['email'])) {
         if (($sqlresult1 = mysqli_query($link, $queryUser1)) == FALSE) {
         }
         $_SESSION['password'] = $password;
+        $_SESSION['rank'] = $userData['rank'];
+        $_SESSION['email'] = $userData['email'];
         $_SESSION['login'] = $login;
         $_SESSION['id'] = $userData['user_id'];
         $_SESSION['description'] = $userData['description'];

@@ -91,7 +91,7 @@
 	</div>
 	<div class="content" style="align-items: flex-start;justify-content: flex-start; margin-top:1em;">
 				<input name="search" type="text" class="search" placeholder="Поиск"/>
-				<button class="headbutton" style="width:5%">Найти</button>
+				<button class="headbutton" style="width:5%; margin-right:7%; height:25px; margin-top:1%;">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
 				<select id ="select" class="navsel">
 					<option value="0">Навигация</option>
@@ -108,8 +108,10 @@
 		<p class="arttext">
 			Макакорукие волки  — бурые волки размером с овчарку, отличительная черта: пять пальцев как у обезьян на передних лапах, строение передних лап
 			похоже на руки человекообразных обезьян.
+			<br><br>
 			Волки не смотрят в небо. Съедают убитых. Обращают раненых. Обращённые мельче рождённых.
-			Волки подчиняются вожаку вожаков, который находится в другом мире. 
+			<br><br>
+			Волки подчиняются вожаку вожаков, который находится в другом мире.
 		</p>
 	</div>
 	<div style="background-color:silver; border-color:black; border-width:2px; border-style:solid; border-radius:1em; height:15em;

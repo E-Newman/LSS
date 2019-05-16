@@ -91,7 +91,7 @@
 	</div>
 	<div class="content" style="align-items: flex-start;justify-content: flex-start; margin-top:1em;">
 				<input name="search" type="text" class="search" placeholder="Поиск"/>
-				<button class="headbutton" style="width:5%">Найти</button>
+				<button class="headbutton" style="width:5%; margin-right:7%; height:25px; margin-top:1%;">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
 				<select id ="select" class="navsel">
 					<option value="0">Навигация</option>
@@ -105,13 +105,21 @@
 		</div>
 	<div class="content" style="background-color:silver; border-color:black; border-width:2px; border-style:solid; border-radius:1em;
 				width:80%; margin-top:2%; margin-left:10%;">
-		<p class="arttext">Лиара — тень Лианки. Как и Лианка имеет три формы.
+		<p class="arttext">
+			Лиара — тень Лианки. Как и Лианка имеет три формы.
+			<br><br>
 			1. серебряная дракона размером с лошадь.
+			<br><br>
 			2. девушка — чёрные волосы, чёрные глаза, джинсы, футболка, кроссовки. Выглядит на 25 лет.
-			3. волчица грязно-серого цвета с темно-серой полосой вдоль хребта и тёмным хвостом. 
+			<br><br>
+			3. волчица грязно-серого цвета с темно-серой полосой вдоль хребта и тёмным хвостом.
+			<br><br> 
 			В драконьем виде - скорость полета 200-250 км/ч.  Скорость бега в волчьем 40-60 км/ч.
+			<br><br>
 			Стихия: огонь
+			<br><br>
 			Род занятий: телохранитель Лианки.
+			<br><br>
 			Инвентарь: карман в четырёхмерике с разными вещами, среди которых есть спальник, котелок, палатка, холодное оружие, баночки с массажным маслом.
 		</p>
 	</div>

@@ -93,9 +93,8 @@
 				</form>
         </div>
 		<div class="content" style="align-items: flex-start;justify-content: flex-start;">
-				<input name="search" type="text" style="font-family: Columbina; margin-left:30%; margin-top:1em; width:35%; height:40%;
-					border-radius: 1em;" placeholder="Поиск"/>
-				<button class="headbutton" style="width:5%">Найти</button>
+				<input name="search" type="text" class="search" placeholder="Поиск"/>
+				<button class="headbutton" style="width:5%; margin-right:7%; height:25px; margin-top:1%;">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
 				<select id ="select" class="navsel">
 					<option value="0">Навигация</option>
@@ -110,10 +109,10 @@
 		<div style="text-align:center">
 			<h2>Галерея</h2>
 			<div class="content" style="background-color:white; border-style:solid; border-color:black; border-width:2px;
-				border-radius: 1em; width:40%; margin-left:30%; margin-top:1em;"> <!--норм див?--><!--норм,ток маргины лучше писать в %(с)Александер-->
+				border-radius: 1em; width:40%; height:10em; margin-left:30%; margin-top:1em;"> <!--норм див?--><!--норм,ток маргины лучше писать в %(с)Александер-->
+				<!--<img src="images/test.png" style="margin:1em; height:5%;" />
 				<img src="images/test.png" style="margin:1em; height:5%;" />
-				<img src="images/test.png" style="margin:1em; height:5%;" />
-				<img src="images/test.png" style="margin:1em; height:5%;" />
+				<img src="images/test.png" style="margin:1em; height:5%;" />-->
 			</div>
 		</div>
 		<div class="content" style="align-items: flex-start;justify-content: flex-start;">

@@ -53,6 +53,13 @@ session_start();
 	<div class="head" style="margin-right: 5px; ">
 		<button class="headbutton popup auth nouser" href="#loginForm">Войти</button>
 		<button class="headbutton user" onClick='location.href="me.php"'>Личный кабинет</button>
+		<?php
+		if($_SESSION['rank'] >= 2){
+						
+						echo "<a class='headbutton user' href='creator.php' style='vertical-align:center;'>Редактор статей</a>
+						";
+					}
+		?>
 		<button class="headbutton popup auth user" onClick='location.href="logout.php"'>Выйти</button>
 		<button class="headbutton popup auth nouser" href="#regForm">Регистрация</button>
 	</div>
@@ -112,7 +119,7 @@ session_start();
         </div>
 		<div class="content" style="align-items: flex-start;justify-content: flex-start;">
 				<input name="search" type="text" class="search" placeholder="Поиск"/>
-				<button class="headbutton" style="width:5%">Найти</button>
+				<button class="headbutton" style="width:5%; margin-right:7%; height:25px; margin-top:1%;">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
 				<select id ="select" class="navsel">
 					<option value="0">Навигация</option>
@@ -350,7 +357,13 @@ session_start();
 							ппп
 						</p>
 						<button class="btn">Читать</button>
-					</div>
+					</div>if($_SESSION['rank'] >= 2){
+						
+						echo "<div class='eventblock'>
+						<h3>Готовятся к публикации</h3>
+						<!--TODO: заполнить, видят ток адмен и эдитор-->
+					</div>";
+					}
 					<div class="b">
 						<p class="a">
 							ррр
@@ -421,17 +434,22 @@ session_start();
 					class="loadmore mooer" value="Показать еще" style="display:none"/>
 				</h5>
 			</div>
-			<div style="display:inline-block; width:25%; margin-top:3%; margin-left:1%;">
+			<div style="display:inline-block; width:25%; margin-top:7%; margin-left:1%;">
 				<!--у всех боттом нормальный?-->
-				<button class="headbutton" onClick='location.href="wiki.php"' style="margin-bottom:5%; margin-left:20%;">К вселенной</button>
 				<div class="eventblock" style="margin-bottom:20%;">
 					<h3>Навигация по энциклопедии</h3>
 					<!--TODO: заполнить-->
 				</div>
-				<div class="eventblock">
+				<?php
+				
+				if($_SESSION['rank'] >= 2){
+
+					echo "<div class='eventblock'>
 					<h3>Готовятся к публикации</h3>
 					<!--TODO: заполнить, видят ток адмен и эдитор-->
-				</div>
+				</div>";
+				}
+				?>
 			</div>
 		</div>
 	</div>

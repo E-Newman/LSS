@@ -94,7 +94,7 @@
 	</div>
 	<div class="content" style="align-items: flex-start;justify-content: flex-start;">
 				<input name="search" type="text" class="search" placeholder="Поиск"/>
-				<button class="headbutton" style="width:5%">Найти</button>
+				<button class="headbutton" style="width:5%; margin-right:7%; height:25px; margin-top:1%;">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
 				<select id ="select" class="navsel">
 					<option value="0">Навигация</option>

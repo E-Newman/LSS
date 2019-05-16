@@ -112,7 +112,7 @@ session_start();
 		</div>
 		<div class="content" style="align-items: flex-start;justify-content: flex-start;">
 				<input name="search" type="text" class="search" placeholder="Поиск"/>
-				<button class="headbutton" style="width:5%">Найти</button>
+				<button class="headbutton" style="width:5%; margin-right:7%; height:25px; margin-top:1%;">Найти</button>
 				<!--TODO: попытка перейти выдаёт undefined-->
 				<select id ="select" class="navsel">
 					<option value="0">Навигация</option>
@@ -457,9 +457,8 @@ session_start();
 					class="loadmore mooer" value="Показать еще" style="display:none"/>
 				</h5>
 			</div>
-			<div style="display:inline-block; width:25%; margin-top:3%; margin-left:1%;">
+			<div style="display:inline-block; width:25%; margin-top:7%; margin-left:1%;">
 				<!--у всех боттом нормальный?-->
-				<button class="headbutton" onClick='location.href="wiki.php"' style="margin-bottom:5%; margin-left:20%;">К вселенной</button>
 				<div class="eventblock" style="margin-bottom:20%;">
 					<h3>Навигация по энциклопедии</h3>
 					<!--TODO: заполнить-->
