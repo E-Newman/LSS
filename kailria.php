@@ -53,6 +53,11 @@ session_start();
 	<div class="head" style="margin-right: 5px; ">
 		<button class="headbutton popup auth nouser" href="#loginForm">Войти</button>
 		<button class="headbutton user" onClick='location.href="me.php"'>Личный кабинет</button>
+		<?php
+		if($_SESSION['rank'] >= 2){
+			echo "<button class='headbutton user' onclick='location.href=\"creator.php\"' style='vertical-align:center;'>Редактор статей</a>";
+			}
+		?>
 		<button class="headbutton popup auth user" onClick='location.href="logout.php"'>Выйти</button>
 		<button class="headbutton popup auth nouser" href="#regForm">Регистрация</button>
 	</div>
@@ -457,7 +462,7 @@ session_start();
 					class="loadmore mooer" value="Показать еще" style="display:none"/>
 				</h5>
 			</div>
-			<div style="display:inline-block; width:25%; margin-top:7%; margin-left:1%;">
+			<div style="display:inline-block; width:25%; margin-top:7%; margin-left:12%;">
 				<!--у всех боттом нормальный?-->
 				<div class="eventblock" style="margin-bottom:20%;">
 					<h3>Навигация по энциклопедии</h3>

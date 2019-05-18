@@ -24,11 +24,11 @@ $(document).ready(function () {
 					//Если запрос был к бд с Новостями 
 					if (data.query == "News") {
 						//Вставляем html код под блоком с Новостями
-
+						console.log(data.html);
 						$('#content').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
-						btn_more.attr('count_show', (count_show + 3));
+						btn_more.attr('count_show', (count_show + 2));
 
 					}
 					//Если запрос был к бд с Событиями
@@ -38,7 +38,7 @@ $(document).ready(function () {
 						$('#content1').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
-						btn_more.attr('count_show', (count_show + 3));
+						btn_more.attr('count_show', (count_show + 2));
 
 					}
 
@@ -211,6 +211,7 @@ $(document).ready(function () {
 		html+=" <select  name = 'article_type' id='select3' class='navsel'>" +
 		"<option value='race'>Расы</option>" +
 		"	<option value='event'>События</option>" +
+		"	<option value='event'>Персонажи</option>" +
 		"	<option value='char'>Новость</option>" +
 		"	<option value='prof'>Профессия</option> " +
 		"	<option value='place'>Место</option>" +

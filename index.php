@@ -115,7 +115,7 @@ session_start();
         <br>
         <button class="mainLink" onClick='location.href="news.php"' style="display:inline-block;margin-top:2%; margin-left:30%;">Новости</button>
         <br>
-        <button class="mainLink" onClick='location.href="todo.php"' style="display:inline-block;margin-top:2%;margin-left:45%;">Блог</button>
+        <button class="mainLink" onClick='location.href="blog.php"' style="display:inline-block;margin-top:2%;margin-left:45%;">Блог</button>
         <br>
         <button class="mainLink" onClick='location.href="todo.php"' style="display:inline-block;margin-top:2%;margin-left:60%;">Книги</button>
         <br>

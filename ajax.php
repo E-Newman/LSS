@@ -10,7 +10,7 @@ $type_query = (int)$_POST['type_query']; //Тип запроса
 if ($type_query == 1) {
 	$countView = (int)$_POST['count_add'];  // количество записей, получаемых за один раз
 	$startIndex = (int)$_POST['count_show'];
-	$query = "SELECT * FROM `NEWS` LIMIT $startIndex,$countView";
+	$query = "SELECT * FROM `News` LIMIT $startIndex,$countView";
 	$sqlresult = mysqli_query($link, $query);
 	$newsData = array();
 	while ($result = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
@@ -24,32 +24,23 @@ if ($type_query == 1) {
 	} else {
 		// если новости получили из базы, то сформируем html элементы
 		// и отдадим их клиенту
+				
 		$html = "";
 		foreach ($newsData as $oneNews) {
-			$html .= "   
-						<div class= 'b'>
-						<p class= 'a'>
-						{$oneNews['CONTENT']}
-						</p>
-						<p class= 'b'>
-						{$oneNews['DATE_PUBLISHING']}
-						</p>
-						<p class= 'c'>
-						Содержание 3 статьи
-						Содержание 3 статьи
-						Содержание 3 статьи
-						Содержание 3 статьи
-						Содержание 3 статьи
-						Содержание 3 статьи
-						Содержание 3 статьи
-						Содержание 3 статьи
-						Содержание 3 статьи
-						Содержание 3 статьи
-						Содержание 3 статьи
-						Содержание 3 статьи
-						Содержание 3 статьи
-						</p>
-						<button class='btn'>Читать</button>
+			$temp=substr($oneNews['content'],0,strpos($oneNews['content'],".",strpos($oneNews['content'],".")+1));
+			$html .=	"<div class='b' style='display:block; width:85%;'>
+							<p class='a'>
+								{$oneNews['header']}
+							</p>
+							<p>
+								{$oneNews['date']}
+							</p>
+							<p class='c'>
+								{$temp}...
+							</p>
+							<p>
+								<button class='btn' onClick='location.href=\"newscontent.php?id=".$oneNews['news_id']."\"'>Читать</button>
+							</p>
 						</div>";
 		}
 		echo json_encode(array(
@@ -78,18 +69,20 @@ if ($type_query == 2) {
 		// и отдадим их клиенту
 		$html1 = "";
 		foreach ($eventsData as $event) {
-			$html .= "   
-						<div class= 'b'>
-						<p class= 'a'>
-						{$event['Name']}
-						</p>
-						<p class= 'b'>
-						{$event['Date']}
-						</p>
-						<p class= 'c'>
-						{$event['preview']}
-						</p>
-						<button class='btn'>Читать</button>
+			$temp=substr($event['content'],0,strpos($event['content'],".",strpos($event['content'],".")+1));
+			$html .=	"<div class='b' style='display:block; width:85%;'>
+							<p class='a'>
+								{$event['header']}
+							</p>
+							<p>
+								{$event['date']}
+							</p>
+							<p class='c'>
+								{$temp}...
+							</p>
+							<p>
+								<button class='btn' onClick='location.href=\"eventcontent.php?id=".$event['event_id']."\"'>Читать</button>
+							</p>
 						</div>";
 		}
 		echo json_encode(array(
@@ -173,10 +166,10 @@ if ($type_query == 5) {
 						<p class= 'c'>
 						{$temp}...
 						</p>
-						<a class='btn' href= 'articlecontent.php?id=".$character['article_id']."' >Читать</a>						
+						<button class='btn' onclick='location.href=\"articlecontent.php?id=".$character['article_id']."\"' >Читать</button>			
 						</div>						
 						";
-		}
+		}//href= 'articlecontent.php?id="
 		//<button class='btn' id_id='".$character['article_id']."'>Читать</button>
 		echo json_encode(array(
 			'result'    => 'success',

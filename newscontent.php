@@ -4,20 +4,14 @@ require_once 'databaseconnect.php';
 $link = mysqli_connect(HOST, USER, PASSWORD, DB_NAME);
 mysqli_set_charset($link, "utf8");
 $content_id= $_GET['id'];
-$query = "SELECT * FROM Articles WHERE article_id = '$content_id'";
-$type = "Articles";
+$query = "SELECT * FROM News WHERE news_id = '$content_id'";
+$type = "News"; 
 
 $sqlresult = mysqli_query($link, $query);
 $wrldarray = array();
 while ($wrldresult = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
 	$wrldarray[] = $wrldresult;
 }
-foreach ($wrldarray as $content) {
-	$world=$content["world"];
-	}
-	foreach ($wrldarray as $content) {
-		$article_type=$content["type"];
-		}
 ?>
 <!DOCTYPE html>
 
@@ -51,10 +45,9 @@ foreach ($wrldarray as $content) {
 			<button class="headbutton popup auth user" onClick='location.href="../../logout.php"'>Выйти</button>
 			<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
 			<?php
-				if ($_SESSION['rank']>=2){
-					$link = "editor.php?id=".$_GET['id']."&type=".$type."&world=".$world."&article_type=".$article_type;
-					print "<button class='headbutton user' onClick='location.href=\"$link\"'>Редактировать</button>";
-				}
+					if ($_SESSION['rank']>=2){
+				print "<a class='headbutton ' href = 'editor.php?id=".$_GET['id']."&type=".$type."'>Редактировать</a>";
+					}
 			?>
 		</div>
 	</div>

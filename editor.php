@@ -1,4 +1,21 @@
 <?php
+require_once 'databaseconnect.php';
+$link = mysqli_connect(HOST, USER, PASSWORD, DB_NAME);
+mysqli_set_charset($link, "utf8");
+$content_id= $_GET['id'];
+$type=$_GET['type'];
+$id_array = ['Articles' => 'article_id',
+             'Blogs' => 'blog_id',
+             'News' => 'news_id',
+             'Events' => 'event_id'];
+$query = "SELECT * FROM $type WHERE $id_array[$type] = '$content_id'";
+$sqlresult = mysqli_query($link, $query);
+$wrldarray = array();
+while ($wrldresult = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
+	$wrldarray[] = $wrldresult;
+}
+?>
+<?php
 session_start();
 if ($_SESSION['rank'] < 2){
     header("location: ../../error403.php");
@@ -57,30 +74,51 @@ if ($_SESSION['rank'] < 2){
 		</select>
 	</div>
         
-    <form action="add.php" method="POST" style="width:100%;min-width:100%; background-color:transparent;">    
+    <form action="edit.php" method="POST" style="width:100%;min-width:100%; background-color:transparent;">    
 		<div>
 			<!--<h1 id= "header_content" style="display:inline; font-family:Columbina; font-size:40px; color:white; padding-left:45%; padding-top:2%;">Заголовок<br>-->
-			<input name="header" type="text" class="search" style="font-size:48px;" placeholder="Заголовок..."  
-			autofocus />        
+			<input name="header" type="text" class="search" style="font-size:48px;" placeholder="Заголовок..." autofocus 
+            value="<?php
+			foreach ($wrldarray as $content) {
+				echo $content["header"];
+				}?>"/>        
 		</div>
 		<div class="content" style="background-color:silver; border-color:black; border-width:2px; border-style:solid; border-radius:1em;
 					width:80%; margin-top:2%; margin-left:10%;">
 			<p class="arttext" id= "contentp" style="height:40em; width:100%; text-align:center;">
 				<textarea class="arttext" style="height:90%; width:90%; vertical-align:top;" type="text" name="content"
-				placeholder="Введите текст статьи..."></textarea>
+				placeholder="Введите текст статьи...">
+                <?php
+		        foreach ($wrldarray as $content) {
+		        print $content["content"];
+		        }
+		        ?>
+                </textarea>
 			</p>
 		</div>
-	   <p style="color:white; font-family:Columbina;"> Черновик <input type="checkbox" name="tmp"/></p>
+       <p style="color:white; font-family:Columbina;"> Черновик <input type="checkbox" name="tmp"
+        <?php
+       foreach ($wrldarray as $content) {
+        $templ = $content["isTemplate"];
+        }
+        if($templ == 1){
+            echo "checked";
+        }
+        ?>/></p>
 	   <p></p>
-	   <input name="tags" type="text" class="search" style="margin-left:0%;" placeholder="Теги..."/>
-	   <p></p>
-	   <select id="select1" class="navsel" name = "type" style="margin-left:0%;" >			
-			<option value="News">Новость</option>
-			<option value="Articles">Статья</option>
-			<option value="Blogs">Запись в блоге</option>
-			<option value="Events">Событие</option>
-		</select>          
-		<p id="xui"></p>
+	   <input name="tags" type="text" class="search" style="margin-left:0%;" placeholder="Теги..."
+       value="
+       <?php
+		        foreach ($wrldarray as $content) {
+		        print $content["tags"];
+		        }
+		        ?>
+       "/>
+       <p></p>
+       <input style="display:none;"name = "type" value='<?php print $_GET['type']; ?>'/>
+	   <input style="display:none;"name = "id" value='<?php print $_GET['id']; ?>'/>
+       <input style="display:none;"name = "world" value='<?php print $_GET['world']; ?>'/>
+       <input style="display:none;"name = "article_type" value='<?php print $_GET['article_type']; ?>'/>
 		<br>
 		<button>Отправить</button>
 	</form>

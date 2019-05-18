@@ -16,7 +16,7 @@
 <title>Лианкины истории: статья</title> <!--TODO: название статьи через запрос-->
 <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="/JS/scripts.js" type="text/javascript"></script>
+<script src="/JS/scripts2.js" type="text/javascript"></script>
 <script src="libs/magnific-popup/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript">
 	var links = { 'index': 'index.php', 'wiki': 'wiki.php', 'news': 'news.php' };

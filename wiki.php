@@ -159,7 +159,4 @@
 		<footer style="border-top: medium solid black"></footer>
     </div>
 </body>
-</html> medium solid black"></footer>
-    </div>
-</body>
 </html>
