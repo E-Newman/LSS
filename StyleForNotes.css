@@ -1,0 +1,43 @@
+.b{
+	display: inline-block!important;
+ 	height: 20em;
+	width: 25%;
+	background-color: rgba(0, 106, 194);
+	border-style: solid;
+	border-color: black;
+	border-radius: 10px 20px;
+	margin-top: 1.5%;
+	margin-left: 1.5%;
+}
+	p.a
+	{
+		height: 2em;
+		font-size: 28pt;
+		font-family: 'Columbina';	
+		color: white;
+	}
+	p.b
+		{
+			height: 5%;			
+			margin-left: 1.5%;
+			margin-right: 1.5%;
+			font-family: 'Columbina';
+			color: white;
+		}
+	p.c{
+			height: 7em;
+			font-family: 'Columbina';
+			color: white;
+		}
+.eventblock {
+    background-color: rgba(0, 106, 194);
+    width: 20em;
+    height: 30em;
+    display: block;
+    margin-left: 15%;
+	margin-right:2%;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 1em;
+}
