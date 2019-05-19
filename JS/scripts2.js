@@ -28,7 +28,7 @@ $(document).ready(function () {
 						$('#content').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
-						btn_more.attr('count_show', (count_show + 2));
+						btn_more.attr('count_show', (count_show + 4));
 
 					}
 					//Если запрос был к бд с Событиями
@@ -38,7 +38,7 @@ $(document).ready(function () {
 						$('#content1').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
-						btn_more.attr('count_show', (count_show + 2));
+						btn_more.attr('count_show', (count_show + 4));
 
 					}
 
@@ -77,7 +77,7 @@ $(document).ready(function () {
 						//$('#charcontent').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
-						btn_more.attr('count_show', (count_show + 2));
+						btn_more.attr('count_show', (count_show + 4));
 						
 					}
 					if (data.query == "prof") {
@@ -85,42 +85,42 @@ $(document).ready(function () {
 						$('#profcontent').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
-						btn_more.attr('count_show', (count_show + 2));
+						btn_more.attr('count_show', (count_show + 4));
 					}
 					if (data.query == "race") {
 
 						$('#racecontent').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
-						btn_more.attr('count_show', (count_show + 2));
+						btn_more.attr('count_show', (count_show + 4));
 					}
 					if (data.query == "place") {
 
 						$('#placecontent').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
-						btn_more.attr('count_show', (count_show + 2));
+						btn_more.attr('count_show', (count_show + 4));
 					}
 					if (data.query == "build") {
 
 						$('#buildcontent').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
-						btn_more.attr('count_show', (count_show + 2));
+						btn_more.attr('count_show', (count_show + 4));
 					}
 					if (data.query == "event") {
 
 						$('#eventcontent').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
-						btn_more.attr('count_show', (count_show + 2));
+						btn_more.attr('count_show', (count_show + 4));
 					}
 					if (data.query == "art") {
 
 						$('#artcontent').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
-						btn_more.attr('count_show', (count_show + 2));
+						btn_more.attr('count_show', (count_show + 4));
 					}
 					
 					
@@ -453,7 +453,7 @@ $(document).ready(function () {
 	});
 	
 	$('#select').change(function () {
-		var links = { "index":  base_url + "index.php", "wiki": base_url + "wiki.php", "news": base_url + "news.php"};
+		var links = { "index":  base_url + "index.php", "wiki": base_url + "wiki.php", "news": base_url + "news.php", "blog": base_url + "blog.php"};
 		var a = this.value
 		window.location.href = links[a];
 	});

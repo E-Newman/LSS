@@ -4,13 +4,21 @@
 <html>
     <head>
         <title>Доступ запрещён</title>	
-		<?php if(empty($_SESSION['login'])){           
-				echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
-			} else {
-				$_SESSION['prevpage'] = 'error403.php';
-				echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
-			}
-		?>
+		<?php if (empty($_SESSION['login'])) {
+        echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+		$logAction = 'href="#loginForm"';
+		$logCaption = 'Войти';
+		$regAction = 'href="#regForm"';
+		$regCaption = 'Регистрация';
+    } else {
+		$_SESSION['prevpage'] = 'error403.php';
+        echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
+		$logAction = "onClick='location.href=\"logout.php\"'";
+		$logCaption = 'Выйти';
+		$regAction = "onClick='location.href=\"me.php\"'";
+		$regCaption = 'Личный кабинет';
+    }
+    ?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
@@ -83,10 +91,13 @@
 						<button class="headbutton">Другие проекты</button>	
 					</div>    
 					<div class = "head" style="margin-right: 5px; ">
-						<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
-						<button class="headbutton user" onClick='location.href="me.php"' >Личный кабинет</button>
-						<button class="headbutton popup auth user" onClick='location.href="logout.php"'>Выйти</button>
-						<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
+						<button id="Login" class="headbutton popup auth" <?php echo $logAction; ?>><?php echo $logCaption;?></button>
+						<button class="headbutton popup auth" <?php echo $regAction; ?>><?php echo $regCaption;?></button>
+						<?php
+							if($_SESSION['rank'] >= 2){
+								echo "<button class='headbutton user' onclick='location.href=\"creator.php\"' style='vertical-align:center;'>Редактор статей</button>";
+							}
+						?>
 					</div>
 				</div>
 			</header>

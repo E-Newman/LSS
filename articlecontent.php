@@ -23,12 +23,20 @@ foreach ($wrldarray as $content) {
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<?php if(empty($_SESSION['login'])){           
-		echo ' <link rel="stylesheet" type="text/css" href="../../styleforexperiments.css"> ';
-	} else {
-		$_SESSION['prevpage'] = 'articles/drego/liara.php';
-		echo ' <link rel="stylesheet" type="text/css" href="../../styleBySanya.css"> ';
-	}
+<?php if (empty($_SESSION['login'])) {
+        echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+		$logAction = 'href="#loginForm"';
+		$logCaption = 'Войти';
+		$regAction = 'href="#regForm"';
+		$regCaption = 'Регистрация';
+    } else {
+		$_SESSION['prevpage'] = 'index.php';
+        echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
+		$logAction = "onClick='location.href=\"logout.php\"'";
+		$logCaption = 'Выйти';
+		$regAction = "onClick='location.href=\"me.php\"'";
+		$regCaption = 'Личный кабинет';
+    }
 ?>
 <meta charset="utf-8" />
 <title>Лиара</title> <!--TODO: название статьи через запрос-->
@@ -46,14 +54,11 @@ foreach ($wrldarray as $content) {
 			<button class="headbutton">Другие проекты</button>	
 		</div>    
 		<div class = "head" style="margin-right: 5px; ">
-			<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
-			<button class="headbutton user" onClick='location.href="../../me.php"' >Личный кабинет</button>
-			<button class="headbutton popup auth user" onClick='location.href="../../logout.php"'>Выйти</button>
-			<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
+			<button id="Login" class="headbutton popup auth" <?php echo $logAction; ?>><?php echo $logCaption;?></button>
+			<button class="headbutton popup auth" <?php echo $regAction; ?>><?php echo $regCaption;?></button>
 			<?php
-				if ($_SESSION['rank']>=2){
-					$link = "editor.php?id=".$_GET['id']."&type=".$type."&world=".$world."&article_type=".$article_type;
-					print "<button class='headbutton user' onClick='location.href=\"$link\"'>Редактировать</button>";
+			if($_SESSION['rank'] >= 2){
+				echo "<button class='headbutton user' onclick='location.href=\"creator.php\"' style='vertical-align:center;'>Редактор статей</button>";
 				}
 			?>
 		</div>
@@ -120,7 +125,7 @@ foreach ($wrldarray as $content) {
 			<option value="index">Главная страница</option>
 			<option value="wiki">Вселенная</option>
 			<option value="news">Новости</option>
-			<option>Блог</option>
+			<option value="blog">Блог</option>
 			<option>Книги</option>
 			<option>Обратная связь</option>
 		</select>
@@ -134,6 +139,12 @@ foreach ($wrldarray as $content) {
 		?>
 		</h1>
 		<img src="../../images/star.png" style="display:inline; margin-left:10%;" width=50 height=50 />
+		<?php
+			if ($_SESSION['rank']>=2){
+				$link = "editor.php?id=".$_GET['id']."&type=".$type."&world=".$world."&article_type=".$article_type;
+				print "<button class='headbutton user' style=\"display:inline; width:10%; margin-left:2%;\" onClick='location.href=\"$link\"'>Редактировать</button>";
+			}
+		?>
 	</div>
 
 

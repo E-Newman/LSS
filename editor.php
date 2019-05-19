@@ -68,7 +68,7 @@ if ($_SESSION['rank'] < 2){
 			<option value="index">Главная страница</option>
 			<option value="wiki">Вселенная</option>
 			<option value="news">Новости</option>
-			<option>Блог</option>
+			<option value="blog">Блог</option>
 			<option>Книги</option>
 			<option>Обратная связь</option>
 		</select>

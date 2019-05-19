@@ -4,13 +4,21 @@
 <html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<?php if(empty($_SESSION['login'])){            
-			echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
-		} else {
-			$_SESSION['prevpage'] = 'news.php';
-			echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
-		}
-?>
+<?php if (empty($_SESSION['login'])) {
+        echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+		$logAction = 'href="#loginForm"';
+		$logCaption = 'Войти';
+		$regAction = 'href="#regForm"';
+		$regCaption = 'Регистрация';
+    } else {
+		$_SESSION['prevpage'] = 'news.php';
+        echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
+		$logAction = "onClick='location.href=\"logout.php\"'";
+		$logCaption = 'Выйти';
+		$regAction = "onClick='location.href=\"me.php\"'";
+		$regCaption = 'Личный кабинет';
+    }
+    ?>
     <meta charset="utf-8" />
     <title>Лианкины истории: новости</title>
     <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
@@ -40,10 +48,13 @@
             </div>
             
 			<div class = "head" style="margin-right: 5px; ">
-			<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
-            <button class="headbutton user" onClick='location.href="me.php"' >Личный кабинет</button>
-			<button class="headbutton popup auth user" onClick='location.href="logout.php"'>Выйти</button>
-			<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
+			<button id="Login" class="headbutton popup auth" <?php echo $logAction; ?>><?php echo $logCaption;?></button>
+			<button class="headbutton popup auth" <?php echo $regAction; ?>><?php echo $regCaption;?></button>
+			<?php
+				if($_SESSION['rank'] >= 2){
+					echo "<button class='headbutton user' onclick='location.href=\"creator.php\"' style='vertical-align:center;'>Редактор статей</button>";
+				}
+			?>
             </div>
             
 	    </header>
@@ -108,7 +119,7 @@
 						<option value="index">Главная страница</option>
 						<option value="wiki">Вселенная</option>
 						<option value="news">Новости</option>
-						<option>Блог</option>
+						<option value="blog">Блог</option>
 						<option>Книги</option>
 						<option>Обратная связь</option>
 					</select>
@@ -137,7 +148,7 @@
 						</div>
 						<div id="content"></div>
 						<h5>
-							<input id="show_more1" count_show="0" count_add="2" type_query="1" type="button" class="loadmore" value="Показать еще" />
+							<input id="show_more1" count_show="0" count_add="4" type_query="1" type="button" class="loadmore" value="Показать еще" />
 						</h5>
 					</div>
 					<h2>Ближайшие события</h2>
@@ -162,7 +173,7 @@
 						</div>
 						<div id="content1"></div>
 						<h5 id="newsbtn">
-							<input id="show_more" count_show="0" count_add="2" type_query="2" type="button" class="loadmore mooer" value="Показать еще" />
+							<input id="show_more" count_show="0" count_add="4" type_query="2" type="button" class="loadmore mooer" value="Показать еще" />
 						</h5>
 					</div>
 				</div>

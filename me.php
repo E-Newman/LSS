@@ -8,7 +8,7 @@
             echo 'Авторизуйтесь'; // TODO: нормальное сообщение об ошибке
             } else {
 				$_SESSION['prevpage'] = 'index.php';
-                echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+                echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
             }
 	    ?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,6 +27,11 @@
     <body>
         <header class="headfoot">
 			<div class="head" style="margin-left:80%;">
+				<?php
+					if($_SESSION['rank'] >= 2){
+						echo "<button class='headbutton user' onclick='location.href=\"creator.php\"' style='vertical-align:center;'>Редактор статей</button>";
+					}
+				?>
 				<button class="headbutton popup auth" onClick='location.href="logout.php"'>Выйти</button>
 			</div>
         </header>

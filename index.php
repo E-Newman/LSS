@@ -8,9 +8,17 @@ session_start();
 <head>
     <?php if (empty($_SESSION['login'])) {
         echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+		$logAction = 'href="#loginForm"';
+		$logCaption = 'Войти';
+		$regAction = 'href="#regForm"';
+		$regCaption = 'Регистрация';
     } else {
 		$_SESSION['prevpage'] = 'index.php';
         echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
+		$logAction = "onClick='location.href=\"logout.php\"'";
+		$logCaption = 'Выйти';
+		$regAction = "onClick='location.href=\"me.php\"'";
+		$regCaption = 'Личный кабинет';
     }
     ?>
     <meta charset="utf-8" />
@@ -31,10 +39,13 @@ session_start();
     </div>
 
     <div class="head" style="margin-right: 5px; ">
-        <button id="Login" class="headbutton popup auth nouser" href="#loginForm">Войти</button>
-        <button class="headbutton user" onClick='location.href="me.php"'>Личный кабинет</button>
-		<button class="headbutton popup auth user" onClick='location.href="logout.php"'>Выйти</button>
-        <button class="headbutton popup auth nouser" href="#regForm">Регистрация</button>
+        <button id="Login" class="headbutton popup auth" <?php echo $logAction; ?>><?php echo $logCaption;?></button>
+        <button class="headbutton popup auth" <?php echo $regAction; ?>><?php echo $regCaption;?></button>
+		<?php
+		if($_SESSION['rank'] >= 2){
+			echo "<button class='headbutton user' onclick='location.href=\"creator.php\"' style='vertical-align:center;'>Редактор статей</button>";
+			}
+		?>
     </div>
 
 </header>

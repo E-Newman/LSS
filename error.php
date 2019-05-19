@@ -85,6 +85,11 @@
 					<div class = "head" style="margin-right: 5px; ">
 						<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
 						<button class="headbutton user" onClick='location.href="me.php"' >Личный кабинет</button>
+						<?php
+							if($_SESSION['rank'] >= 2){
+								echo "<button class='headbutton user' onclick='location.href=\"creator.php\"' style='vertical-align:center;'>Редактор статей</button>";
+							}
+						?>
 						<button class="headbutton popup auth user" onClick='location.href="logout.php"'>Выйти</button>
 						<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
 					</div>

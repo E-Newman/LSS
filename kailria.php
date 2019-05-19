@@ -7,12 +7,20 @@ session_start();
 
 <head>
 	<?php if (empty($_SESSION['login'])) {
-		echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
-	} else {
+        echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+		$logAction = 'href="#loginForm"';
+		$logCaption = 'Войти';
+		$regAction = 'href="#regForm"';
+		$regCaption = 'Регистрация';
+    } else {
 		$_SESSION['prevpage'] = 'kailria.php';
-		echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
-	}
-	?>
+        echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
+		$logAction = "onClick='location.href=\"logout.php\"'";
+		$logCaption = 'Выйти';
+		$regAction = "onClick='location.href=\"me.php\"'";
+		$regCaption = 'Личный кабинет';
+    }
+    ?>
 	<meta charset="utf-8" />
 	<title>Лианкины истории: Каильрия</title>
 	<!--TODO: название мира через запрос-->
@@ -51,15 +59,13 @@ session_start();
 		<button class="headbutton">Другие проекты</button>
 	</div>
 	<div class="head" style="margin-right: 5px; ">
-		<button class="headbutton popup auth nouser" href="#loginForm">Войти</button>
-		<button class="headbutton user" onClick='location.href="me.php"'>Личный кабинет</button>
+		<button id="Login" class="headbutton popup auth" <?php echo $logAction; ?>><?php echo $logCaption;?></button>
+        <button class="headbutton popup auth" <?php echo $regAction; ?>><?php echo $regCaption;?></button>
 		<?php
 		if($_SESSION['rank'] >= 2){
-			echo "<button class='headbutton user' onclick='location.href=\"creator.php\"' style='vertical-align:center;'>Редактор статей</a>";
+			echo "<button class='headbutton user' onclick='location.href=\"creator.php\"' style='vertical-align:center;'>Редактор статей</button>";
 			}
 		?>
-		<button class="headbutton popup auth user" onClick='location.href="logout.php"'>Выйти</button>
-		<button class="headbutton popup auth nouser" href="#regForm">Регистрация</button>
 	</div>
 	</div>
 </header>
@@ -124,7 +130,7 @@ session_start();
 					<option value="index">Главная страница</option>
 					<option value="wiki">Вселенная</option>
 					<option value="news">Новости</option>
-					<option>Блог</option>
+					<option value="blog">Блог</option>
 					<option>Книги</option>
 					<option>Обратная связь</option>
 				</select>
@@ -183,7 +189,7 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_characters" count_show="0" count_add="2" type_query="5" world_type="ka" article_type = "char" type="button"
+					<input id="show_characters" count_show="0" count_add="4" type_query="5" world_type="ka" article_type = "char" type="button"
 					class="loadmore mooer" value="Показать еще" style="display:none"/>
 				</h5>
 				<div id="profcontent" style="display:none">
@@ -238,7 +244,7 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_prof" count_show="0" count_add="2" type_query="5" world_type="ka" article_type = "prof" type="button"
+					<input id="show_prof" count_show="0" count_add="4" type_query="5" world_type="ka" article_type = "prof" type="button"
 					class="loadmore mooer" value="Показать еще" style="display:none"/>
 				</h5>
 				<div id="racecontent">
@@ -265,7 +271,7 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_race" count_show="0" count_add="2" type_query="5" world_type="ka" article_type = "race" type="button" class="loadmore mooer" value="Показать еще" />
+					<input id="show_race" count_show="0" count_add="4" type_query="5" world_type="ka" article_type = "race" type="button" class="loadmore mooer" value="Показать еще" />
 				</h5>
 				<div id="placecontent" style="display:none">
 					<h2>Места</h2>
@@ -319,7 +325,7 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_place" count_show="0" count_add="2" type_query="5" world_type="ka" article_type = "place" type="button" 
+					<input id="show_place" count_show="0" count_add="4" type_query="5" world_type="ka" article_type = "place" type="button" 
 					class="loadmore mooer" value="Показать еще" style="display:none"/>
 				</h5>
 				<div id="buildcontent" style="display:none">
@@ -374,7 +380,7 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_build" count_show="0" count_add="2" type_query="5" world_type="ka" article_type = "build" type="button"
+					<input id="show_build" count_show="0" count_add="4" type_query="5" world_type="ka" article_type = "build" type="button"
 					class="loadmore mooer" value="Показать еще" style="display:none"/>
 				</h5>
 				<div id="eventcontent">
@@ -404,7 +410,7 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_event" count_show="0" count_add="2" type_query="5" world_type="ka" article_type = "event" type="button" class="loadmore mooer" value="Показать еще" />
+					<input id="show_event" count_show="0" count_add="4" type_query="5" world_type="ka" article_type = "event" type="button" class="loadmore mooer" value="Показать еще" />
 				</h5>
 				<div id="artcontent" style="display:none">
 					<h2>Артефакты</h2>
@@ -458,7 +464,7 @@ session_start();
 					</div>
 				</div>
 				<h5>
-					<input id="show_art" count_show="0" count_add="2" type_query="5" world_type="ka" article_type = "art" type="button"
+					<input id="show_art" count_show="0" count_add="4" type_query="5" world_type="ka" article_type = "art" type="button"
 					class="loadmore mooer" value="Показать еще" style="display:none"/>
 				</h5>
 			</div>

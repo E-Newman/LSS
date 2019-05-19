@@ -5,18 +5,26 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<?php if(empty($_SESSION['login'])){            
-		echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
-	} else {
-		$_SESSION['prevpage'] = 'wiki.php';
-		 echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
-	}
-?>
+<?php if (empty($_SESSION['login'])) {
+        echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+		$logAction = 'href="#loginForm"';
+		$logCaption = 'Войти';
+		$regAction = 'href="#regForm"';
+		$regCaption = 'Регистрация';
+    } else {
+		$_SESSION['prevpage'] = 'index.php';
+        echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
+		$logAction = "onClick='location.href=\"logout.php\"'";
+		$logCaption = 'Выйти';
+		$regAction = "onClick='location.href=\"me.php\"'";
+		$regCaption = 'Личный кабинет';
+    }
+    ?>
     <meta charset="utf-8" />
 	<title>Лианкины истории: вселенная</title>
     <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src="/JS/scripts.js" type="text/javascript"></script>
+    <script src="/JS/scripts2.js" type="text/javascript"></script>
     <script src="libs/magnific-popup/jquery.magnific-popup.min.js"></script>
 	<script type="text/javascript">
 		var links = { 'index': 'index.php', 'wiki': 'wiki.php', 'news': 'news.php' };
@@ -34,10 +42,13 @@
             </div>
             
 			<div class = "head" style="margin-right: 5px; ">
-			<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
-            <button class="headbutton user" onClick='location.href="me.php"' >Личный кабинет</button>
-			<button class="headbutton popup auth user" onClick='location.href="logout.php"'>Выйти</button>
-			<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
+			<button id="Login" class="headbutton popup auth" <?php echo $logAction; ?>><?php echo $logCaption;?></button>
+			<button class="headbutton popup auth" <?php echo $regAction; ?>><?php echo $regCaption;?></button>
+			<?php
+				if($_SESSION['rank'] >= 2){
+					echo "<button class='headbutton user' onclick='location.href=\"creator.php\"' style='vertical-align:center;'>Редактор статей</button>";
+				}
+			?>
             </div>
             
 	    </header>
@@ -101,7 +112,7 @@
 					<option value="index">Главная страница</option>
 					<option value="wiki">Вселенная</option>
 					<option value="news">Новости</option>
-					<option>Блог</option>
+					<option value="blog">Блог</option>
 					<option>Книги</option>
 					<option>Обратная связь</option>
 				</select>
@@ -118,12 +129,12 @@
 		<div class="content" style="align-items: flex-start;justify-content: flex-start;">
 			<div style="padding-top:1%; padding-bottom:1%;  width:78%;"> 
 				<div class="sub" style="display:inline-block; margin-left:5%;">Дрэго (Астарм)</div> 
-				<a id="dregoim" href='drego.php'><img src="images/planet.png" height=80px width=80px style="border-radius:50%; margin-left:5%; display:inline-block;"/></a>
+				<a id="dregoim" href='drego.php'><img src="images/planet.png" height=60px width=60px style="border-radius:50%; margin-left:5%; display:inline-block;"/></a>
 				<div class="sub" style="margin-left:3em;display:inline-block;">Проект Королева</div>
-				<a id="queenim" href='queen.php'><img src="images/planet.png" height=80px width=80px caption="Проект Королева" style="border-radius:50%; display:inline-block;
+				<a id="queenim" href='queen.php'><img src="images/planet.png" height=60px width=60px caption="Проект Королева" style="border-radius:50%; display:inline-block;
 					margin-left:5%;"/></a>
 				<div class="sub" style="margin-left:3em;display:inline-block;">Каильрия</div>
-				<a id="kaim" href='kailria.php'><img src="images/planet.png" height=80px width=80px caption="Каильрия" style="border-radius:50%; display:inline-block;
+				<a id="kaim" href='kailria.php'><img src="images/planet.png" height=60px width=60px caption="Каильрия" style="border-radius:50%; display:inline-block;
 					margin-left:5%;"/></a>
 				<p></p>
 				<div class="worldhint" id="dregohint" style="margin-left:5%; display:inline-block;">
@@ -148,7 +159,7 @@
 					<p>Уровень развития: традиционное патриархальное общество</p>
 				</div>
 			</div>
-			<div class="eventblock" style="margin-left:0%; margin-right:0%;">
+			<div class="eventblock" style="margin-left:10%; width:27%; margin-right:0%;">
 				<h3>Ближайшие события</h3>
 				<div style="height:70%;">
 					<!--TODO сюда грузим события-->

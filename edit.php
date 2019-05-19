@@ -8,6 +8,10 @@ $content=$_POST['content'];
 $type=$_POST['type'];
 $tags = $_POST['tags'];
 $id = $_POST['id'];
+$page_array = ['Articles' => 'articlecontent.php?id=',
+             'Blogs' => 'blogcontent.php?id=',
+             'News' => 'newscontent.php?id=',
+             'Events' => 'eventcontent.php?id='];
 if($_POST['tmp']){
     $tmp = 1;
 } else {
@@ -28,6 +32,6 @@ if($type == "News"){
 }
 mysqli_query($link, $query);
 mysqli_close($link);
-$redir = $_SERVER['HTTP_REFERER'];
-header("location: $redir");
+$redir = $page_array[$type].$id;
+        header("location: $redir");
 ?>

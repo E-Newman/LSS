@@ -10,10 +10,18 @@ if ($_SESSION['rank'] < 2){
 
 <head>
     <?php if (empty($_SESSION['login'])) {
-        echo ' <link rel="stylesheet" type="text/css" href="../../styleforexperiments.css"> ';
+        echo ' <link rel="stylesheet" type="text/css" href="styleforexperiments.css"> ';
+		$logAction = 'href="#loginForm"';
+		$logCaption = 'Войти';
+		$regAction = 'href="#regForm"';
+		$regCaption = 'Регистрация';
     } else {
 		$_SESSION['prevpage'] = 'index.php';
-        echo ' <link rel="stylesheet" type="text/css" href="../../styleBySanya.css"> ';
+        echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
+		$logAction = "onClick='location.href=\"logout.php\"'";
+		$logCaption = 'Выйти';
+		$regAction = "onClick='location.href=\"me.php\"'";
+		$regCaption = 'Личный кабинет';
     }
     ?>
     <meta charset="utf-8" />
@@ -34,10 +42,8 @@ if ($_SESSION['rank'] < 2){
     </div>
 
     <div class="head" style="margin-right: 5px; ">
-        <button id="Login" class="headbutton popup auth nouser" href="#loginForm">Войти</button>
-        <button class="headbutton user" onClick='location.href="../../me.php"'>Личный кабинет</button>
-		<button class="headbutton popup auth user" onClick='location.href="../../logout.php"'>Выйти</button>
-        <button class="headbutton popup auth nouser" href="#regForm">Регистрация</button>
+        <button id="Login" class="headbutton popup auth" <?php echo $logAction; ?>><?php echo $logCaption;?></button>
+        <button class="headbutton popup auth" <?php echo $regAction; ?>><?php echo $regCaption;?></button>
     </div>
 
 </header>
@@ -51,7 +57,7 @@ if ($_SESSION['rank'] < 2){
 			<option value="index">Главная страница</option>
 			<option value="wiki">Вселенная</option>
 			<option value="news">Новости</option>
-			<option>Блог</option>
+			<option value="blog">Блог</option>
 			<option>Книги</option>
 			<option>Обратная связь</option>
 		</select>
