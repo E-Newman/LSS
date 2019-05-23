@@ -244,11 +244,12 @@ h3 {
   .b {
 	display: inline-block!important;
  	height: 20em;
-	width: 25%;
+	width: 35%;
 	background-color:  #A9A9A9 ;
 	border-radius: 10px 20px;
 	margin-top: 1.5%;
-	margin-left: 1.5%;
+    margin-left: 1.5%;
+    padding-bottom: 2em;
 	}
 	p.a
 	{

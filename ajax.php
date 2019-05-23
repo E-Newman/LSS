@@ -202,4 +202,47 @@ if ($type_query == 6) {
 		));
 	
 }
+if ($type_query == 7) {
+	$countView = (int)$_POST['count_add'];  // количество записей, получаемых за один раз
+	$startIndex = (int)$_POST['count_show'];
+	$query = "SELECT * FROM Blogs LIMIT $startIndex,$countView";
+	$sqlresult = mysqli_query($link, $query);
+	$blogData = array();
+	while ($result = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
+		$blogData[] = $result;
+	}
+	if (empty($blogData)) {
+		// если новостей нет
+		echo json_encode(array(
+			'result'    => 'finish'
+		));
+	} else {
+		// если новости получили из базы, то сформируем html элементы
+		// и отдадим их клиенту
+				
+		$html = "";
+		foreach ($blogData as $blog_Data) {
+			$temp=substr($blog_Data['content'],0,strpos($blog_Data['content'],".",strpos($blog_Data['content'],".")+1));
+			$html .=	"<div class='b' style='display:block; width:85%;'>
+							<p class='a'>
+								{$blog_Data['header']}
+							</p>
+							<p>
+								{$blog_Data['date']}
+							</p>
+							<p class='c'>
+								{$temp}...
+							</p>
+							<p>
+								<button class='btn' onClick='location.href=\"blogcontent.php?id=".$blog_Data['blog_id']."\"'>Читать</button>
+							</p>
+						</div>";
+		}
+		echo json_encode(array(
+			'result'    => 'success',
+			'query'    => 'News',
+			'html'      => $html
+		));
+	}
+}
 mysqli_close($link);

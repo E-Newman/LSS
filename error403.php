@@ -11,12 +11,12 @@
 		$regAction = 'href="#regForm"';
 		$regCaption = 'Регистрация';
     } else {
-		$_SESSION['prevpage'] = 'error403.php';
+		$_SESSION['prevpage'] = 'index.php';
         echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';
 		$logAction = "onClick='location.href=\"logout.php\"'";
 		$logCaption = 'Выйти';
 		$regAction = "onClick='location.href=\"me.php\"'";
-		$regCaption = 'Личный кабинет';
+		$regCaption = 'Профиль';
     }
     ?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -86,8 +86,8 @@
 			<header class = "headfoot">
 				<div class = "head" style="margin-left: 5px;">
 					<div class="headfoot" style="height:0.1em"></div>
-						<button id="logo" onClick='location.href="https://vk.com/liankastory"' style="background: url(source/vk.png) round"></button>            
-						<button id="logo" onClick='location.href="https://instagram.com/firstova.helena"' style= "background: url(source/inst.png) round"></button>
+						<button class="headbutton" onclick="location.href='https://vk.com/liankastory'">Группа ВКонтакте</button>
+						<button class="headbutton" onclick="location.href='https://instagram.com/firstova.helena'">Instagram</button>
 						<button class="headbutton">Другие проекты</button>	
 					</div>    
 					<div class = "head" style="margin-right: 5px; ">

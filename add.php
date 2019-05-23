@@ -22,7 +22,6 @@ if($_POST['tmp']){
 }
 
 if($type != "Articles"){
-
     $query ="INSERT INTO $type (`header`, `content`, `tags`, `isTemplate`) VALUES ('$header','$content','$tags','$tmp')";
     
 } else {
@@ -39,12 +38,12 @@ if(($pageid = mysqli_query($link, $query1)) == FALSE)
 }
 
 foreach ($pageid as $page_id) {
-   $page_id1 = $page_id[$id_array[$type]];
+   $page_id1 = $page_id[$id_array[$type]] + 1 ;
     };
 $res;
 if(($res = mysqli_query($link, $query)) == FALSE)
 {
-    exit("$header $content $tags $world_type $tmp $article_type");
+    exit("$type $header $content $tags $world_type $tmp $$id_array[$type] $page_array[$type]");
 }
 mysqli_close($link);
 $redir = $page_array[$type].$page_id1;

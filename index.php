@@ -18,7 +18,7 @@ session_start();
 		$logAction = "onClick='location.href=\"logout.php\"'";
 		$logCaption = 'Выйти';
 		$regAction = "onClick='location.href=\"me.php\"'";
-		$regCaption = 'Личный кабинет';
+		$regCaption = 'Профиль';
     }
     ?>
     <meta charset="utf-8" />
@@ -32,9 +32,8 @@ session_start();
 </head>
 <header class="headfoot">
     <div class="head" style="margin-left: 5px;">
-        <button id="logo" onClick='location.href="https://vk.com/liankastory"' style="background: url(source/vk.png) round"></button>
-
-        <button id="logo" onClick='location.href="https://instagram.com/firstova.helena"' style="background: url(source/inst.png) round"></button>
+        <button class="headbutton" onclick="location.href='https://vk.com/liankastory'">Группа ВКонтакте</button>
+		<button class="headbutton" onclick="location.href='https://instagram.com/firstova.helena'">Instagram</button>	
         <button class="headbutton">Другие проекты</button>
     </div>
 

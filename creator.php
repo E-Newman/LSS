@@ -21,7 +21,7 @@ if ($_SESSION['rank'] < 2){
 		$logAction = "onClick='location.href=\"logout.php\"'";
 		$logCaption = 'Выйти';
 		$regAction = "onClick='location.href=\"me.php\"'";
-		$regCaption = 'Личный кабинет';
+		$regCaption = 'Профиль';
     }
     ?>
     <meta charset="utf-8" />
@@ -35,9 +35,8 @@ if ($_SESSION['rank'] < 2){
 </head>
 <header class="headfoot">
     <div class="head" style="margin-left: 5px;">
-        <button id="logo" onClick='location.href="https://vk.com/liankastory"' style="background: url(../../source/vk.png) round"></button>
-
-        <button id="logo" onClick='location.href="https://instagram.com/firstova.helena"' style="background: url(../../source/inst.png) round"></button>
+        <button class="headbutton" onclick="location.href='https://vk.com/liankastory'">Группа ВКонтакте</button>
+		<button class="headbutton" onclick="location.href='https://instagram.com/firstova.helena'">Instagram</button>
         <button class="headbutton">Другие проекты</button>
     </div>
 
@@ -67,18 +66,18 @@ if ($_SESSION['rank'] < 2){
 		<div>
 			<!--<h1 id= "header_content" style="display:inline; font-family:Columbina; font-size:40px; color:white; padding-left:45%; padding-top:2%;">Заголовок<br>-->
 			<input name="header" type="text" class="search" style="font-size:48px;" placeholder="Заголовок..."  
-			autofocus />        
+			autofocus required />        
 		</div>
 		<div class="content" style="background-color:silver; border-color:black; border-width:2px; border-style:solid; border-radius:1em;
 					width:80%; margin-top:2%; margin-left:10%;">
 			<p class="arttext" id= "contentp" style="height:40em; width:100%; text-align:center;">
 				<textarea class="arttext" style="height:90%; width:90%; vertical-align:top;" type="text" name="content"
-				placeholder="Введите текст статьи..."></textarea>
+				placeholder="Введите текст статьи..." required></textarea>
 			</p>
 		</div>
 	   <p style="color:white; font-family:Columbina;"> Черновик <input type="checkbox" name="tmp"/></p>
 	   <p></p>
-	   <input name="tags" type="text" class="search" style="margin-left:0%;" placeholder="Теги..."/>
+	   <input name="tags" type="text" class="search" style="margin-left:0%;" required placeholder="Теги..." />
 	   <p></p>
 	   <select id="select1" class="navsel" name = "type" style="margin-left:0%;" >			
 			<option value="News">Новость</option>

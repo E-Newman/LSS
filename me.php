@@ -5,7 +5,7 @@
     <head>
         <title>Лианкины истории: <?php echo 'профиль пользователя ' . $_SESSION["login"]; ?></title>
         <?php if(empty($_SESSION['login'])){            
-            echo 'Авторизуйтесь'; // TODO: нормальное сообщение об ошибке
+            header("location: error403.php");
             } else {
 				$_SESSION['prevpage'] = 'index.php';
                 echo ' <link rel="stylesheet" type="text/css" href="styleBySanya.css"> ';

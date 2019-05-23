@@ -285,7 +285,7 @@ $(document).ready(function () {
 	// Функция проверки занятости логина и почты 
 	function Mail_And_Login_Check(value) {
 		// Занят Логин и Почта
-		console.log(value);
+
 		if (value == 1) {
 			//Выводятся 2 предупреждения и рамки полей ввода для Логина и Почты окрашиваются в красный
 			$('#regField1').css("border-color", "red");
@@ -443,7 +443,6 @@ $(document).ready(function () {
 		}
 		//Проверка пароля регулярным выражением
 		else if (!(pwdreg.test($('#regField3').val()))) {
-			console.log("regular");
 			$('#errField4').css("display", "block");
 			$('#regField3').css("border-color", "red");
 			fortest++;
@@ -452,7 +451,7 @@ $(document).ready(function () {
 		//Проверка пароля на равенство с вторым паролем
 		$('#regField4').css("border-color", "grey");
 		$('#errField5').css("display", "none");
-		//$('#errField4').css("display", "none");
+		$('#errField4').css("display", "none");
 
 		if ($('#regField3').val() != $('#regField4').val()) {
 			$('#errField5').css("display", "block");

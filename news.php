@@ -16,7 +16,7 @@
 		$logAction = "onClick='location.href=\"logout.php\"'";
 		$logCaption = 'Выйти';
 		$regAction = "onClick='location.href=\"me.php\"'";
-		$regCaption = 'Личный кабинет';
+		$regCaption = 'Профиль';
     }
     ?>
     <meta charset="utf-8" />
