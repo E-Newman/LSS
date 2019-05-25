@@ -65,7 +65,6 @@ foreach ($wrldarray as $content) {
 	</div>
 </header>
 <body>
-
 	<div class="headfoot" style="height:0.1em"></div>
 		<div class="hidden">
 		<form id="regForm" action="../../reg.php" method="POST" onsubmit="return false">
@@ -114,7 +113,25 @@ foreach ($wrldarray as $content) {
 			</div>
 			</form>
 	</div>
-	
+	<div>
+		<h1 id= "header_content" style="display:inline; font-family:Columbina; font-size:40px; color:white; padding-left:35%; padding-top:2%;">
+		<?php
+		foreach ($wrldarray as $content) {
+		print $content["header"];
+		}
+		?>
+		</h1>
+		<img src="../../images/star.png" style="display:inline; margin-left:10%;" width=50 height=50 />
+		<?php
+			if ($_SESSION['rank']>=2){
+				$link = "editor.php?id=".$_GET['id']."&type=".$type."&world=".$world."&article_type=".$article_type;
+				print "<button class='headbutton user' style=\"display:inline; width:10%; margin-left:2%;\" onClick='location.href=\"$link\"'>Редактировать</button>";
+			}
+			if ($_SESSION['rank']>=3) {
+				print "<button class='headbutton user' style=\"display:inline; width:10%; margin-left:2%;\" onClick='location.href=\"del.php?id=".$_GET['id']."&type=".$type."\"'>Удалить</button>";
+			}
+		?>
+	</div>
 	<div class="content" style="margin-top:2%;">
 		<input name="search" type="text" style="font-family: Columbina; margin-left:15%; margin-top:1em; width:35%; height:40%;
 			border-radius: 1em;" placeholder="Поиск"/>
@@ -130,26 +147,6 @@ foreach ($wrldarray as $content) {
 			<option>Обратная связь</option>
 		</select>
 	</div>
-    <div>
-		<h1 id= "header_content" style="display:inline; font-family:Columbina; font-size:40px; color:white; padding-left:45%; padding-top:2%;">
-		<?php
-		foreach ($wrldarray as $content) {
-		print $content["header"];
-		}
-		?>
-		</h1>
-		<img src="../../images/star.png" style="display:inline; margin-left:10%;" width=50 height=50 />
-		<?php
-			if ($_SESSION['rank']>=2){
-				$link = "editor.php?id=".$_GET['id']."&type=".$type."&world=".$world."&article_type=".$article_type;
-				print "<button class='headbutton user' style=\"display:inline; width:10%; margin-left:2%;\" onClick='location.href=\"$link\"'>Редактировать</button>";
-			}
-		?>
-	</div>
-
-
-
-
 	<div class="content" style="background-color:silver; border-color:black; border-width:2px; border-style:solid; border-radius:1em;
 				width:80%; margin-top:2%; margin-left:10%;">
 		<p class="arttext" id= "contentp">
@@ -160,11 +157,6 @@ foreach ($wrldarray as $content) {
 		?>
 		</p>
 	</div>
-
-
-
-
-
 	<div style="background-color:silver; border-color:black; border-width:2px; border-style:solid; border-radius:1em; height:15em;
 				width:80%; margin-top:2%; margin-left:10%;">
 		<p style="margin-left:15%;">Никнейм</p>

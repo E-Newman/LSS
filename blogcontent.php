@@ -17,13 +17,22 @@ while ($wrldresult = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<?php if(empty($_SESSION['login'])){           
-		echo ' <link rel="stylesheet" type="text/css" href="../../styleforexperiments.css"> ';
-	} else {
-		$_SESSION['prevpage'] = 'articles/drego/liara.php';
-		echo ' <link rel="stylesheet" type="text/css" href="../../styleBySanya.css"> ';
-	}
-?>
+<?php
+	if (empty($_SESSION['login'])) {
+        echo ' <link rel="stylesheet" type="text/css" href="../../styleforexperiments.css"> ';
+		$logAction = 'href="#loginForm"';
+		$logCaption = 'Войти';
+		$regAction = 'href="#regForm"';
+		$regCaption = 'Регистрация';
+    } else {
+		$_SESSION['prevpage'] = 'index.php';
+        echo ' <link rel="stylesheet" type="text/css" href="../../styleBySanya.css"> ';
+		$logAction = "onClick='location.href=\"../../logout.php\"'";
+		$logCaption = 'Выйти';
+		$regAction = "onClick='location.href=\"../../me.php\"'";
+		$regCaption = 'Профиль';
+    }
+    ?>
 <meta charset="utf-8" />
 <title>Лиара</title> <!--TODO: название статьи через запрос-->
 <link rel="stylesheet" href="../../libs/magnific-popup/magnific-popup.css">
@@ -35,25 +44,22 @@ while ($wrldresult = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
 <header class = "headfoot">
 	<div class = "head" style="margin-left: 5px;">
 		<div class="headfoot" style="height:0.1em"></div>
-			<button id="logo" onClick='location.href="https://vk.com/liankastory"' style="background: url(../../source/vk.png) round"></button>            
-			<button id="logo" onClick='location.href="https://instagram.com/firstova.helena"' style= "background: url(../../source/inst.png) round"></button>
+			<button class="headbutton" onclick="location.href='https://vk.com/liankastory'">Группа ВКонтакте</button>
+			<button class="headbutton" onclick="location.href='https://instagram.com/firstova.helena'">Instagram</button>
 			<button class="headbutton">Другие проекты</button>	
 		</div>    
 		<div class = "head" style="margin-right: 5px; ">
-			<button class="headbutton popup auth nouser" href = "#loginForm">Войти</button>
-			<button class="headbutton user" onClick='location.href="../../me.php"' >Личный кабинет</button>
-			<button class="headbutton popup auth user" onClick='location.href="../../logout.php"'>Выйти</button>
-			<button class="headbutton popup auth nouser" href = "#regForm">Регистрация</button>
+			<button id="Login" class="headbutton popup auth" <?php echo $logAction; ?>><?php echo $logCaption;?></button>
+			<button class="headbutton popup auth" <?php echo $regAction; ?>><?php echo $regCaption;?></button>
 			<?php
-					if ($_SESSION['rank']>=2){
-				print "<a class='headbutton ' href = 'editor.php?id=".$_GET['id']."&type=".$type."'>Редактировать</a>";
-					}
+			if($_SESSION['rank'] >= 2){
+				echo "<button class='headbutton user' onclick='location.href=\"creator.php\"' style='vertical-align:center;'>Редактор статей</button>";
+				}
 			?>
 		</div>
 	</div>
 </header>
 <body>
-
 	<div class="headfoot" style="height:0.1em"></div>
 		<div class="hidden">
 		<form id="regForm" action="../../reg.php" method="POST" onsubmit="return false">
@@ -102,7 +108,25 @@ while ($wrldresult = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
 			</div>
 			</form>
 	</div>
-	
+    <div>
+		<h1 id= "header_content" style="display:inline; font-family:Columbina; font-size:40px; color:white; padding-left:35%; padding-top:2%;">
+		<?php
+		foreach ($wrldarray as $content) {
+		print $content["header"];
+		}
+		?>
+		</h1>
+		<img src="../../images/star.png" style="display:inline; margin-left:10%;" width=50 height=50 />
+		<?php
+			if ($_SESSION['rank']>=2){
+				$link = "editor.php?id=".$_GET['id']."&type=".$type."&world=".$world."&article_type=".$article_type;
+				print "<button class='headbutton user' style=\"display:inline; width:10%; margin-left:2%;\" onClick='location.href=\"$link\"'>Редактировать</button>";
+			}
+			if ($_SESSION['rank']>=3) {
+				print "<button class='headbutton user' style=\"display:inline; width:10%; margin-left:2%;\" onClick='location.href=\"del.php?id=".$_GET['id']."&type=".$type."\"'>Удалить</button>";
+			}
+		?>
+	</div>	
 	<div class="content" style="margin-top:2%;">
 		<input name="search" type="text" style="font-family: Columbina; margin-left:15%; margin-top:1em; width:35%; height:40%;
 			border-radius: 1em;" placeholder="Поиск"/>
@@ -118,20 +142,6 @@ while ($wrldresult = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
 			<option>Обратная связь</option>
 		</select>
 	</div>
-    <div>
-		<h1 id= "header_content" style="display:inline; font-family:Columbina; font-size:40px; color:white; padding-left:45%; padding-top:2%;">
-		<?php
-		foreach ($wrldarray as $content) {
-		print $content["header"];
-		}
-		?>
-		</h1>
-		<img src="../../images/star.png" style="display:inline; margin-left:10%;" width=50 height=50 />
-	</div>
-
-
-
-
 	<div class="content" style="background-color:silver; border-color:black; border-width:2px; border-style:solid; border-radius:1em;
 				width:80%; margin-top:2%; margin-left:10%;">
 		<p class="arttext" id= "contentp">
@@ -142,11 +152,6 @@ while ($wrldresult = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
 		?>
 		</p>
 	</div>
-
-
-
-
-
 	<div style="background-color:silver; border-color:black; border-width:2px; border-style:solid; border-radius:1em; height:15em;
 				width:80%; margin-top:2%; margin-left:10%;">
 		<p style="margin-left:15%;">Никнейм</p>

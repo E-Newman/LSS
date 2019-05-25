@@ -27,6 +27,7 @@ session_start();
 	<link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 	<script src="/JS/scripts2.js" type="text/javascript"></script>
+	<script src="/JS/worldscripts.js" type="text/javascript"></script>
 	<script src="libs/magnific-popup/jquery.magnific-popup.min.js"></script>
 	
 	<style>
@@ -435,7 +436,7 @@ session_start();
 			<div style="display:inline-block; width:25%; margin-top:7%; margin-left:12%;">
 				<!--у всех боттом нормальный?-->
 				<div class="eventblock" style="margin-bottom:20%;">
-					<h3>Навигация по энциклопедии</h3>
+					<h3 id="toappend">Навигация по энциклопедии</h3>
 					<!--TODO: заполнить-->
 				</div>
 				<?php

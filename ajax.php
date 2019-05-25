@@ -245,4 +245,64 @@ if ($type_query == 7) {
 		));
 	}
 }
+if ($type_query == 8) {
+$html='';
+$id_array = ['event' => 'События',
+             'char' => 'Персонажи',
+			 'prof' => 'Профессия',
+			 'build' => 'Сооружение',
+			 'art' => 'Артефакты',
+			 'place' => 'Место'];
+$refs = array();
+$world = $_POST['world'];
+$query = "SELECT DISTINCT type FROM Articles ORDER BY type asc";
+$sqlresult = mysqli_query($link, $query);
+$articleData = array();
+	while ($result = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
+		$articleData[] = $result;
+	}
+foreach($articleData as $data){
+	$type = $data['type'];
+	if (isset($id_array[$type])){
+	$html .= "<p class='navfield' type = '".$type."'>+".$id_array[$type]."</p>";
+	}
+	// $query1 = "SELECT * FROM Articles WHERE world = '$world' AND type ='$type'";
+	// $sqlresult1 = mysqli_query($link, $query1);
+	// $articleData1 = array();
+	// while ($result1 = mysqli_fetch_array($sqlresult1, MYSQLI_ASSOC)) {
+	// 	$articleData1[] = $result1;
+	// }
+	// $debug =  var_export($articleData1, true);
+	// $text = "";
+	// foreach($articleData1 as $data1){
+	// 	$text .= "<a href=\"articlecontent.php?id=".$data1['article_id']."\">".$data1['header']."</a><br>";
+	// }
+	// $refs[$data['type']] = $text;
+	
+}
+echo json_encode(array(
+	'result'    => 'success',
+	'html'      => $html
+));
+}
+if ($type_query == 9) {
+	$type = $_POST['type'];
+	$world = $_POST['world'];
+	$query = "SELECT * FROM Articles WHERE world = '$world' AND type ='$type'";
+	$sqlresult = mysqli_query($link, $query);
+	$articleData = array();
+	while ($result = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
+		$articleData[] = $result;
+	}
+	$text="";
+	$debug =  var_export($world, true);
+	foreach ($articleData as $data){
+		$text .= "<br> <a href=\"articlecontent.php?id=".$data['article_id']."\">".$data['header']."</a>"; 
+		
+	}
+	echo json_encode(array(
+		'result'    => 'success',
+		'text'      => $text
+	));
+}
 mysqli_close($link);

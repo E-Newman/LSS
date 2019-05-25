@@ -89,7 +89,7 @@ $(document).ready(function () {
 					}
 					if (data.query == "race") {
 
-						$('#racecontent').append(data.html);
+						$('#racecontent').append(dattoappenda.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
 						btn_more.attr('count_show', (count_show + 4));
@@ -237,8 +237,7 @@ $(document).ready(function () {
 		html+=" <select  name = 'article_type' id='select3' class='navsel'>" +
 		"<option value='race'>Расы</option>" +
 		"	<option value='event'>События</option>" +
-		"	<option value='event'>Персонажи</option>" +
-		"	<option value='char'>Новость</option>" +
+		"	<option value='char'>Персонажи</option>" +
 		"	<option value='prof'>Профессия</option> " +
 		"	<option value='place'>Место</option>" +
 		"	<option value='build'>Сооружение</option>" +
