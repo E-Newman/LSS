@@ -1,5 +1,4 @@
 <?php
-
 require_once 'databaseconnect.php';
 $link = mysqli_connect(HOST, USER, PASSWORD, DB_NAME)
 	or die("Ошибка " . mysqli_error($link));
@@ -10,7 +9,7 @@ $type_query = (int)$_POST['type_query']; //Тип запроса
 if ($type_query == 1) {
 	$countView = (int)$_POST['count_add'];  // количество записей, получаемых за один раз
 	$startIndex = (int)$_POST['count_show'];
-	$query = "SELECT * FROM `News` LIMIT $startIndex,$countView";
+	$query = "SELECT * FROM `News` ORDER BY 'news_id' desc LIMIT $startIndex,$countView";
 	$sqlresult = mysqli_query($link, $query);
 	$newsData = array();
 	while ($result = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
@@ -53,7 +52,7 @@ if ($type_query == 1) {
 if ($type_query == 2) {
 	$countView = (int)$_POST['count_add'];  // количество записей, получаемых за один раз
 	$startIndex = (int)$_POST['count_show'];
-	$queryEvent = "SELECT * FROM `Events` LIMIT $startIndex,$countView";
+	$queryEvent = "SELECT * FROM `Events` ORDER BY 'event_id' desc LIMIT $startIndex,$countView";
 	$sqlresultEvent = mysqli_query($link, $queryEvent);
 	$eventsData = array();
 	while ($resultEvent = mysqli_fetch_array($sqlresultEvent, MYSQLI_ASSOC)) {
@@ -116,11 +115,11 @@ if ($type_query == 4) {
 	$count = mysqli_query($link, "SELECT user_id FROM Users WHERE username ='$name' AND pwd = '$password'");
 	$count1 = mysqli_query($link, "SELECT user_id FROM Users WHERE username ='$name'");
 	$kostyl = 0;
-	$jopa = mysqli_query($link, "SELECT user_id FROM Users WHERE username ='$name' AND activation_status = 1");
-	$jopa1 = mysqli_query($link, "SELECT user_id FROM Users WHERE username ='$name' AND activation_status = 0");
-	if (mysqli_num_rows($jopa) == 1 && mysqli_num_rows($count) == 1) {
+	$actcount = mysqli_query($link, "SELECT user_id FROM Users WHERE username ='$name' AND activation_status = 1");
+	$actcount1 = mysqli_query($link, "SELECT user_id FROM Users WHERE username ='$name' AND activation_status = 0");
+	if (mysqli_num_rows($actcount) == 1 && mysqli_num_rows($count) == 1) {
 		$countn = 1;
-	} elseif (mysqli_num_rows($jopa1) == 1) {
+	} elseif (mysqli_num_rows($actcount1) == 1) {
 		$countn = 2;
 	} elseif (mysqli_num_rows($count) == 1) {
 		$countn = 3;
@@ -205,7 +204,7 @@ if ($type_query == 6) {
 if ($type_query == 7) {
 	$countView = (int)$_POST['count_add'];  // количество записей, получаемых за один раз
 	$startIndex = (int)$_POST['count_show'];
-	$query = "SELECT * FROM Blogs LIMIT $startIndex,$countView";
+	$query = "SELECT * FROM Blogs ORDER BY 'blog_id' desc LIMIT $startIndex,$countView";
 	$sqlresult = mysqli_query($link, $query);
 	$blogData = array();
 	while ($result = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
@@ -252,10 +251,11 @@ $id_array = ['event' => 'События',
 			 'prof' => 'Профессия',
 			 'build' => 'Сооружение',
 			 'art' => 'Артефакты',
+			 'race' => 'Расы',
 			 'place' => 'Место'];
 $refs = array();
 $world = $_POST['world'];
-$query = "SELECT DISTINCT type FROM Articles ORDER BY type asc";
+$query = "SELECT DISTINCT type FROM Articles WHERE world = '$world' AND isTemplate = 0 ORDER BY type asc";
 $sqlresult = mysqli_query($link, $query);
 $articleData = array();
 	while ($result = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
@@ -265,20 +265,8 @@ foreach($articleData as $data){
 	$type = $data['type'];
 	if (isset($id_array[$type])){
 	$html .= "<p class='navfield' type = '".$type."'>+".$id_array[$type]."</p>";
+	$html.= "<div class = '$type'></div>";
 	}
-	// $query1 = "SELECT * FROM Articles WHERE world = '$world' AND type ='$type'";
-	// $sqlresult1 = mysqli_query($link, $query1);
-	// $articleData1 = array();
-	// while ($result1 = mysqli_fetch_array($sqlresult1, MYSQLI_ASSOC)) {
-	// 	$articleData1[] = $result1;
-	// }
-	// $debug =  var_export($articleData1, true);
-	// $text = "";
-	// foreach($articleData1 as $data1){
-	// 	$text .= "<a href=\"articlecontent.php?id=".$data1['article_id']."\">".$data1['header']."</a><br>";
-	// }
-	// $refs[$data['type']] = $text;
-	
 }
 echo json_encode(array(
 	'result'    => 'success',
@@ -288,7 +276,7 @@ echo json_encode(array(
 if ($type_query == 9) {
 	$type = $_POST['type'];
 	$world = $_POST['world'];
-	$query = "SELECT * FROM Articles WHERE world = '$world' AND type ='$type'";
+	$query = "SELECT * FROM Articles WHERE world = '$world' AND type ='$type' AND isTemplate = 0";
 	$sqlresult = mysqli_query($link, $query);
 	$articleData = array();
 	while ($result = mysqli_fetch_array($sqlresult, MYSQLI_ASSOC)) {
@@ -297,7 +285,7 @@ if ($type_query == 9) {
 	$text="";
 	$debug =  var_export($world, true);
 	foreach ($articleData as $data){
-		$text .= "<br> <a href=\"articlecontent.php?id=".$data['article_id']."\">".$data['header']."</a>"; 
+		$text .= "<a class = '$type' href=\"articlecontent.php?id=".$data['article_id']."\">".$data['header']."</a><br>"; 
 		
 	}
 	echo json_encode(array(

@@ -435,7 +435,7 @@ session_start();
 			</div>
 			<div style="display:inline-block; width:25%; margin-top:7%; margin-left:12%;">
 				<!--у всех боттом нормальный?-->
-				<div class="eventblock" style="margin-bottom:20%;">
+				<div class="eventblock" style="margin-bottom:20%;display:flex;">
 					<h3 id="toappend">Навигация по энциклопедии</h3>
 					<!--TODO: заполнить-->
 				</div>

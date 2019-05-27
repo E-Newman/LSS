@@ -26,7 +26,7 @@ $(document).ready(function () {
         });
         
         }
-        function get_articles(type,label){
+        function get_articles(type){
 
             $.ajax({
                 
@@ -41,25 +41,28 @@ $(document).ready(function () {
                                 
                 success: function (data) {
                     
-                    label.append(data.text);
+                    $('.'+type).append(data.text);
 
                 }
             });
         }
-        String.prototype.replaceAt=function(index, replacement) {
-            return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
-        }
+        
         $(document).on("click", ".navfield", function(){
-            var str=$(this).text();
-            console.log(str);
-            if(str.indexOf('+') >= 0){
+            var str = $(this).text(); 
             var type = $(this).attr('type');
-            var label = $(this);
+            var label = $(this); 
+            if(str.indexOf('+') != -1){
+            var l = str.replace('+','-');       
+            $(this).text(l);
             get_articles(type,label);
-            str.replaceAt(0,"-")
-            console.log(str[0]);
-            $(this).text(str);
+            } else {
+                var str = $(this).text();
+                var l = str.replace('-','+'); 
+                $(this).text(l);
+                $('.'+type).text('');
             }
+                 
+            
            });
     
 });

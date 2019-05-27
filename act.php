@@ -19,10 +19,7 @@ if (!empty($_GET['code']) && isset($_GET['code'])) {
   }
 }
 ?>
-
 <?php
 echo $msg;
-
 header("refresh:2 ; url=index.php");
-
 ?>

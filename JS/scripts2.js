@@ -24,7 +24,7 @@ $(document).ready(function () {
 					//Если запрос был к бд с Новостями 
 					if (data.query == "News") {
 						//Вставляем html код под блоком с Новостями
-						console.log(data.html);
+						
 						$('#content').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
@@ -73,6 +73,7 @@ $(document).ready(function () {
 				if (data.result == "success") {
 					//Если запрос был к бд с Новостями 
 					if (data.query == "char") {
+						console.log('1');
 						$('#charcontent').append(data.html);
 						//$('#charcontent').append(data.html);
 						btn_more.val('Показать еще');
@@ -89,7 +90,7 @@ $(document).ready(function () {
 					}
 					if (data.query == "race") {
 
-						$('#racecontent').append(dattoappenda.html);
+						$('#racecontent').append(data.html);
 						btn_more.val('Показать еще');
 						//Увеличиваем начальный индекс на 3
 						btn_more.attr('count_show', (count_show + 4));
@@ -151,7 +152,7 @@ $(document).ready(function () {
 			success: function (data) {
 
 				if (data.result == "success") {
-					console.log(data.html);
+					
 					$('#blogcontent').append(data.html);
 					btn_more.val('Показать еще');
 					btn_more.attr('count_show', (count_show + 4));
@@ -216,7 +217,7 @@ $(document).ready(function () {
 
 				if (data.result == "success") {
 
-					check_mat(data.html);
+					list(data.html);
 
 				}
 
@@ -225,13 +226,13 @@ $(document).ready(function () {
 		});
 		
 	}
-	function check_mat(array) {
+	function list(array) {
 
 		var html= " <select name = 'world_type' id='select2' class='navsel'>";
 		array.forEach(function(data, index){
 			
 			html += "<option value='" + data['world'] + "'>" + data['world'] + "</option>";
-			console.log(index);
+			
 		});
 		html+= "</select>";
 		html+=" <select  name = 'article_type' id='select3' class='navsel'>" +
@@ -244,7 +245,7 @@ $(document).ready(function () {
 		"   <option value='art'>Артефакты</option>" +
 			"</select>"
 		
-		$('#xui').append(html);
+		$('#list').append(html);
 		
 	}
 	function check_Mail_And_Name(name, email) {
@@ -277,14 +278,15 @@ $(document).ready(function () {
 				}
 
 			}
-
+		
 		});
-
+		return 0;
 	}
+	var FOrtestt = 0;
 	// Функция проверки занятости логина и почты 
 	function Mail_And_Login_Check(value) {
 		// Занят Логин и Почта
-		console.log(value);
+		
 		if (value == 1) {
 			//Выводятся 2 предупреждения и рамки полей ввода для Логина и Почты окрашиваются в красный
 			$('#regField1').css("border-color", "red");
@@ -312,13 +314,13 @@ $(document).ready(function () {
 
 		}
 		//Ничего не занято
-		else {
+		else if (value != 3){
 
 			$('#regField1').css("border-color", "black");
 			$('#regField2').css("border-color", "black");
 			$('#errField22').css("display", "none");
 			$('#errField11').css("display", "none");
-
+			FOrtestt = 1;
 		}
 	}
 
@@ -398,16 +400,25 @@ $(document).ready(function () {
 		var type_query = parseInt($(this).attr('type_query'));
 		for_Blogs(btn_more,count_show, count_add, type_query);
 	});
-
+	// function sleep(ms) {
+	// 	return new Promise(resolve => setTimeout(resolve, ms));
+	//   }
 	$('#regComplete').click(function () {
 		//Никнейм
 		var name = $('#regField1').val();
 		//Почта
 		var email = $('#regField2').val();
-		//Запрос к базе данных для проверки занятости Никнейма и Почты 
-		var vall = check_Mail_And_Name(name, email);
-		//Счетчик ошибок заполнения
 		var fortest = 0;
+		//Запрос к базе данных для проверки занятости Никнейма и Почты 
+		if (check_Mail_And_Name(name, email) == 0){
+			fortest = 1;
+			console.log(FOrtestt);
+		} else if (FOrtestt == 1){
+			fortest = 0;
+		}
+		// await sleep(2000);
+		//Счетчик ошибок заполнения
+		
 		// Регулярные выражения для Валидации Никнейма(nickreg) , Пароля(pwdreg) , Почты(mailreg)
 		var nickreg = /^[a-zA-Z0-9]+$/;
 		var pwdreg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
@@ -442,7 +453,7 @@ $(document).ready(function () {
 		}
 		//Проверка пароля регулярным выражением
 		else if (!(pwdreg.test($('#regField3').val()))) {
-			console.log("regular");
+			
 			$('#errField4').css("display", "block");
 			$('#regField3').css("border-color", "red");
 			fortest++;
@@ -468,13 +479,14 @@ $(document).ready(function () {
 
 		}
 		//Валидация кнопки "Подписаться на e-mail рассылку" #TODO
-
+		console.log(fortest);
 		//Если ошибок не обнаружено, отправляем форму
 		if (fortest == 0) {
 
 			document.getElementById('regForm').submit(true);
 
 		}
+	
 	});
 	$('#logComplete').click(function () {
 		var name = $('#logField1').val();
@@ -498,7 +510,7 @@ $(document).ready(function () {
 			$('#select2').remove();
 			$('#select3').remove();
 		}
-		console.log(this.value);
+		
 	});
 
 

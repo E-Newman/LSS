@@ -85,7 +85,7 @@ if ($_SESSION['rank'] < 2){
 			<option value="Blogs">Запись в блоге</option>
 			<option value="Events">Событие</option>
 		</select>          
-		<p id="xui"></p>
+		<p id="list"></p>
 		<br>
 		<button>Отправить</button>
 	</form>
